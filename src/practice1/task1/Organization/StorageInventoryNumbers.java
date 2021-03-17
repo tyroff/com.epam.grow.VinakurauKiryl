@@ -6,7 +6,7 @@ import java.util.Map;
 public class StorageInventoryNumbers {
 
     private int inventoryNumber = 0;
-    private Map<Integer, ? super Object> storageInventoryNumbers;
+    private Map<Integer, Object> storageInventoryNumbers;
 
     public StorageInventoryNumbers() {
         storageInventoryNumbers = new HashMap<>();
