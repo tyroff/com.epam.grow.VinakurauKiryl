@@ -37,18 +37,24 @@ public class HashCodeEx {
 
     @Override
     public int hashCode() {
-        return Objects.hash(a, b);
+        int result = Integer.hashCode(a);
+        System.out.println("Integer.hashCode(a) = " + result);
+        result = 31 * result + Integer.hashCode(b);
+        System.out.println("Integer.hashCode(b) = " + Integer.hashCode(b));
+        return result;
     }
 
     public static void main(String[] args) {
         Object object = new Object();
         String str1 = "Hello";
         String str2 = "World";
-
-
+        HashCodeEx hashCodeEx1 = new HashCodeEx(69273666,2);
+        HashCodeEx hashCodeEx2 = new HashCodeEx(1,3);
 
         System.out.println(object.hashCode());
         System.out.println(str1.hashCode());
         System.out.println(str2.hashCode());
+        System.out.println(hashCodeEx1.hashCode());
+        System.out.println(hashCodeEx2.hashCode());
     }
 }
