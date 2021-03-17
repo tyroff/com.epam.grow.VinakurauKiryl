@@ -1,6 +1,6 @@
 package practice1.task1.Address;
 
-public class Address {
+public final class Address {
     private Country country;
     private String town;
     private String street;
