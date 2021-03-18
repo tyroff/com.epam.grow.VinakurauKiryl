@@ -18,5 +18,15 @@ public class ListIteratorExample {
         while(listIterator.hasNext()) {
             System.out.println(listIterator.next());
         }
+
+        listIterator.set("Испания");
+
+        System.out.println();
+        // пройти по элементам в обратном направлении
+        while(listIterator.hasPrevious()) {
+            System.out.println(listIterator.previous());
+        }
+
+
     }
 }
