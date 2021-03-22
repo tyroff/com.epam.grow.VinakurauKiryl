@@ -1,6 +1,6 @@
 package practice1.task1.Transport;
 
-public class WheeledTransport extends TracklessTransport {
+public class WheeledTransport extends Transport {
 
     private int numberOfWheels;
     private double fuelConsumption;

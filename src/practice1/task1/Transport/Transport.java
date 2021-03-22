@@ -1,9 +1,11 @@
 package practice1.task1.Transport;
 
+import practice1.task1.Entity;
+
 import java.util.Date;
 import java.util.Objects;
 
-public abstract class Transport {
+public abstract class Transport extends Entity {
     private String mark;
     private String model;
     private FuelType fuelType;
