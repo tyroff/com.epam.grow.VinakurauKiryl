@@ -1,6 +1,7 @@
 package practice1.task1.Transport;
 
 import java.util.Date;
+import java.util.Objects;
 
 public abstract class Transport {
     private String mark;
@@ -57,5 +58,18 @@ public abstract class Transport {
                 "\n     maxSpeed = " + maxSpeed +
                 "\n     countryOfManufacture = " + countryOfManufacture +
                 "\n     price = " + price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport transport = (Transport) o;
+        return maxCapacityOfPeople == transport.maxCapacityOfPeople && maxSpeed == transport.maxSpeed && price == transport.price && Objects.equals(mark, transport.mark) && Objects.equals(model, transport.model) && fuelType == transport.fuelType && Objects.equals(countryOfManufacture, transport.countryOfManufacture);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mark, model, fuelType, maxCapacityOfPeople, maxSpeed, countryOfManufacture, price);
     }
 }

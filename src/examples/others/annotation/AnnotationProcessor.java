@@ -9,7 +9,6 @@ public class AnnotationProcessor {
     private static Map<String, Object> servicesMap = new HashMap<>();
 
     public static void main(String[] args) throws IllegalAccessException, InstantiationException {
-
         inspectService(SimpleService.class);
         inspectService(LazyService.class);
         inspectService(String.class);
@@ -19,7 +18,6 @@ public class AnnotationProcessor {
         loadService("java.lang.String");
 
         servicesMap.forEach((k, v) -> System.out.println("Key = " + k + " | Value = " + v));
-
     }
 
     static void inspectService(Class<?> service) {
@@ -54,5 +52,4 @@ public class AnnotationProcessor {
             System.out.println(e);
         }
     }
-
 }

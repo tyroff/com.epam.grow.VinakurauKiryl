@@ -3,6 +3,7 @@ package practice1.task1.Organization;
 import practice1.task1.Address.Address;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class Organization {
     private String name;
@@ -40,5 +41,18 @@ public class Organization {
                 "\n     legalAddress: " + legalAddress.toString() +
                 "\n     physicalAddress: " + physicalAddress.toString() +
                 "\n     numberEmployees: " + numberEmployees;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Organization that = (Organization) o;
+        return numberEmployees == that.numberEmployees && Objects.equals(name, that.name) && Objects.equals(legalAddress, that.legalAddress) && Objects.equals(physicalAddress, that.physicalAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, legalAddress, physicalAddress, numberEmployees);
     }
 }

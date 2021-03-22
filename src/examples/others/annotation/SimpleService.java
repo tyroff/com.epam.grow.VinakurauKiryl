@@ -1,7 +1,6 @@
 package examples.others.annotation;
 
 @Service(name = "ASimpleService")
-
 public class SimpleService {
 
     @Init
