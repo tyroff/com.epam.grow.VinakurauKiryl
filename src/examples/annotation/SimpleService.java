@@ -1,4 +1,4 @@
-package examples.others.annotation;
+package examples.annotation;
 
 @Service(name = "ASimpleService")
 public class SimpleService {

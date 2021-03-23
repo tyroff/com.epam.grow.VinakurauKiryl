@@ -3,7 +3,7 @@ package practice1.task2;
 import java.util.Arrays;
 
 /**
- * Created by Vinakurau Kiryl on 15.03.2021.
+ * @author Vinakurau Kiryl create on 15.03.2021.
  */
 public class DynamicArray {
 

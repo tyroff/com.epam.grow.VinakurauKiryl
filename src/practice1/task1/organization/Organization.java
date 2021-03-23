@@ -1,22 +1,33 @@
-package practice1.task1.Organization;
+package practice1.task1.organization;
 
-import practice1.task1.Address.Address;
+import practice1.task1.address.Address;
 
-import java.util.Map;
 import java.util.Objects;
 
-public class Organization {
+/**
+ * All objects of the {@code final class Organization} contain
+ * the name, legal address, physical address, the number of employees
+ * and {@link practice1.task1.organization.StorageInventoryNumbers}.
+ * <p>
+ * @author Kiryl_Vinakurau
+ * </p>
+ */
+public final class Organization {
+
     private String name;
     private Address legalAddress;
     private Address physicalAddress;
     private int numberEmployees;
-
+    private StorageInventoryNumbers storageInventoryNumbers;
 
     public Organization(String name, Address legalAddress, Address physicalAddress, int numberEmployees) {
         this.name = name;
         this.legalAddress = legalAddress;
         this.physicalAddress = physicalAddress;
         this.numberEmployees = numberEmployees;
+        if(storageInventoryNumbers == null) {
+            storageInventoryNumbers = new StorageInventoryNumbers();
+        }
     }
 
     public String getName() {
@@ -35,12 +46,12 @@ public class Organization {
         return numberEmployees;
     }
 
-    @Override
-    public String toString() {
-        return name + ": " +
-                "\n     legalAddress: " + legalAddress.toString() +
-                "\n     physicalAddress: " + physicalAddress.toString() +
-                "\n     numberEmployees: " + numberEmployees;
+    public StorageInventoryNumbers getStorageInventoryNumbers() {
+        return storageInventoryNumbers;
+    }
+
+    public void setStorageInventoryNumbers(StorageInventoryNumbers storageInventoryNumbers) {
+        this.storageInventoryNumbers = storageInventoryNumbers;
     }
 
     @Override
@@ -54,5 +65,13 @@ public class Organization {
     @Override
     public int hashCode() {
         return Objects.hash(name, legalAddress, physicalAddress, numberEmployees);
+    }
+
+    @Override
+    public String toString() {
+        return name + ": " +
+                "\n     legalAddress: " + legalAddress.toString() +
+                "\n     physicalAddress: " + physicalAddress.toString() +
+                "\n     numberEmployees: " + numberEmployees;
     }
 }

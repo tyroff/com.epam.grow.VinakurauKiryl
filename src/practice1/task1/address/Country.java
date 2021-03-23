@@ -1,6 +1,6 @@
-package practice1.task1.Address;
+package practice1.task1.address;
 
-enum Country {
+public enum Country {
     BELARUS,
     LATVIA,
     LITHUANIA,

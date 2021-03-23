@@ -1,4 +1,4 @@
-package examples.others;
+package examples;
 
 public class TernaryOperator {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package practice1.task1.Transport;
+package practice1.task1.transport;
 
 public class WheeledTransport extends Transport {
 

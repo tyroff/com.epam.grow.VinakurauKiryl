@@ -1,4 +1,15 @@
-package practice1.task1.Address;
+package practice1.task1.address;
+
+import java.util.Objects;
+
+/**
+ * All objects of the {@code final class Address} contain the country name,
+ * city name, street name, house number and building number.
+ *
+ * <p>
+ * @author Kiryl_Vinakurau
+ * </p>
+ */
 
 public final class Address {
     private Country country;
@@ -33,6 +44,19 @@ public final class Address {
 
     public int getIndexNumber() {
         return indexNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return houseNumber == address.houseNumber && indexNumber == address.indexNumber && country == address.country && Objects.equals(town, address.town) && Objects.equals(street, address.street);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(country, town, street, houseNumber, indexNumber);
     }
 
     @Override

@@ -1,6 +1,4 @@
-package examples.others;
-
-import java.util.Objects;
+package examples;
 
 public class HashCodeEx {
     int a;

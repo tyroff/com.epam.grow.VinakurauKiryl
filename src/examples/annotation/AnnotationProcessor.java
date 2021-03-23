@@ -1,4 +1,4 @@
-package examples.others.annotation;
+package examples.annotation;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -13,8 +13,8 @@ public class AnnotationProcessor {
         inspectService(LazyService.class);
         inspectService(String.class);
 
-        loadService("examples.others.annotation.SimpleService");
-        loadService("examples.others.annotation.LazyService");
+        loadService("examples.annotation.SimpleService");
+        loadService("examples.annotation.LazyService");
         loadService("java.lang.String");
 
         servicesMap.forEach((k, v) -> System.out.println("Key = " + k + " | Value = " + v));

@@ -1,11 +1,17 @@
-package practice1.task1.Transport;
+package practice1.task1.transport;
 
-import practice1.task1.Entity;
+import practice1.task1.InventoryEntity;
 
-import java.util.Date;
 import java.util.Objects;
 
-public abstract class Transport extends Entity {
+/**
+ * The abstract class {@code Transport} is the root of the vehicle class hierarchy.
+ * <p>
+ * @author Kiryl Vinakurau
+ * </p>
+ */
+
+public abstract class Transport extends InventoryEntity {
     private String mark;
     private String model;
     private FuelType fuelType;
