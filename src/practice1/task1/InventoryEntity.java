@@ -11,5 +11,13 @@ import java.io.Serializable;
  * </p>
  */
 public abstract class InventoryEntity implements Serializable {
+    private int price;
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 }

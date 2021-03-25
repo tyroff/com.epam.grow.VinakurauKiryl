@@ -4,6 +4,7 @@ package practice1.task1;
 import practice1.task1.address.Address;
 import practice1.task1.address.Country;
 import practice1.task1.organization.Organization;
+import practice1.task1.organization.StorageInventoryNumbersImpl;
 import practice1.task1.transport.FuelType;
 import practice1.task1.transport.Transport;
 import practice1.task1.transport.WheeledTransport;
@@ -15,7 +16,7 @@ public class Main {
     public static void main(String[] args) {
         Address legalAddress = new Address(Country.BELARUS, "Vitebsk", "Komsomol'skaya", 17, 11);
         Address physicalAddress = new Address(Country.BELARUS, "Vitebsk", "Tereshkovoj", 7, 0);
-        Organization busPark = new Organization("Bus Deport #1", legalAddress, physicalAddress, 13);
+        Organization autoPark = new Organization("Bus Deport #1", legalAddress, physicalAddress, 13);
 
         Transport transport1 = new WheeledTransport("MAZ", "206", FuelType.DIESEL_FUEL, 72, 90, 4, "Republic of Belarus", 1000000, 15.3);
         Transport transport2 = new WheeledTransport("MAZ", "216", FuelType.DIESEL_FUEL, 88, 80, 4, "Republic of Belarus", 999000, 14.8);
@@ -25,14 +26,16 @@ public class Main {
         Transport transport6 = new WheeledTransport("MAZ", "256", FuelType.ELECTRICITY, 55, 120, 6, "Republic of Belarus", 800070, 7.7);
         Transport transport7 = new WheeledTransport("MAZ", "266", FuelType.COMPRESSED_NATURAL_GAS, 150, 90, 8, "Republic of Belarus", 700070, 18.9);
         
-        busPark.getStorageInventoryNumbers().add(transport1);
-        busPark.getStorageInventoryNumbers().add(transport2);
-        busPark.getStorageInventoryNumbers().add(transport3);
-        busPark.getStorageInventoryNumbers().add(transport4);
-        busPark.getStorageInventoryNumbers().add(transport5);
-        busPark.getStorageInventoryNumbers().add(transport6);
-        busPark.getStorageInventoryNumbers().add(transport7);
+        autoPark.getStorageInventoryNumbers().add(transport1);
+        autoPark.getStorageInventoryNumbers().add(transport2);
+        autoPark.getStorageInventoryNumbers().add(transport3);
+        autoPark.getStorageInventoryNumbers().add(transport4);
+        autoPark.getStorageInventoryNumbers().add(transport5);
+        autoPark.getStorageInventoryNumbers().add(transport6);
+        autoPark.getStorageInventoryNumbers().add(transport7);
 
-        System.out.println(busPark.toString());
+        System.out.println(autoPark.toString());
+
+        System.out.println("Cost autoPark: " + StorageInventoryNumbersImpl.coastAutoPark(autoPark.getStorageInventoryNumbers().readAll()) + " $");
     }
 }

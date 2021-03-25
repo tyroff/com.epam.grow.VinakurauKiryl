@@ -18,7 +18,6 @@ public abstract class Transport extends InventoryEntity {
     private int maxCapacityOfPeople;
     private int maxSpeed;
     private String countryOfManufacture;
-    private int price;
 
     public Transport(String mark, String model, FuelType fuelType, int maxCapacityOfPeople, int maxSpeed, String countryOfManufacture, int price) {
         this.mark = mark;
@@ -27,7 +26,7 @@ public abstract class Transport extends InventoryEntity {
         this.maxCapacityOfPeople = maxCapacityOfPeople;
         this.maxSpeed = maxSpeed;
         this.countryOfManufacture = countryOfManufacture;
-        this.price = price;
+        super.setPrice(price);
     }
 
     public String getMark() {
@@ -54,30 +53,27 @@ public abstract class Transport extends InventoryEntity {
         return countryOfManufacture;
     }
 
-    public int getPrice() {
-        return price;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transport transport = (Transport) o;
-        return maxCapacityOfPeople == transport.maxCapacityOfPeople && maxSpeed == transport.maxSpeed && price == transport.price && Objects.equals(mark, transport.mark) && Objects.equals(model, transport.model) && fuelType == transport.fuelType && Objects.equals(countryOfManufacture, transport.countryOfManufacture);
+        return maxCapacityOfPeople == transport.maxCapacityOfPeople && maxSpeed == transport.maxSpeed &&  Objects.equals(mark, transport.mark) && Objects.equals(model, transport.model) && fuelType == transport.fuelType && Objects.equals(countryOfManufacture, transport.countryOfManufacture);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mark, model, fuelType, maxCapacityOfPeople, maxSpeed, countryOfManufacture, price);
+        return Objects.hash(mark, model, fuelType, maxCapacityOfPeople, maxSpeed, countryOfManufacture);
     }
 
     @Override
     public String toString() {
         return  "\n" + mark + " " + model +
                 "\n     fuelType = " + fuelType +
-                "\n     maxCapacityOfPeople = " + maxCapacityOfPeople +
-                "\n     maxSpeed = " + maxSpeed +
+                "\n     maxCapacityOfPeople = " + maxCapacityOfPeople + " pcs" +
+                "\n     maxSpeed = " + maxSpeed + " km/h" +
                 "\n     countryOfManufacture = " + countryOfManufacture +
-                "\n     price = " + price;
+                "\n     price = " + super.getPrice() + " $";
     }
 }
