@@ -85,4 +85,9 @@ public final class StorageInventoryNumbers {
     public int hashCode() {
         return Objects.hash(storageInventoryNumbers);
     }
+
+    @Override
+    public String toString() {
+        return "\n" + storageInventoryNumbers;
+    }
 }

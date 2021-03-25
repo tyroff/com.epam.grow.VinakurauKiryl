@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         Address legalAddress = new Address(Country.BELARUS, "Vitebsk", "Komsomol'skaya", 17, 11);
         Address physicalAddress = new Address(Country.BELARUS, "Vitebsk", "Tereshkovoj", 7, 0);
-        Organization organization = new Organization("Bus Deport #1", legalAddress, physicalAddress, 13);
+        Organization busPark = new Organization("Bus Deport #1", legalAddress, physicalAddress, 13);
 
         Transport transport1 = new WheeledTransport("MAZ", "206", FuelType.DIESEL_FUEL, 72, 90, 4, "Republic of Belarus", 1000000, 15.3);
         Transport transport2 = new WheeledTransport("MAZ", "216", FuelType.DIESEL_FUEL, 88, 80, 4, "Republic of Belarus", 999000, 14.8);
@@ -25,12 +25,14 @@ public class Main {
         Transport transport6 = new WheeledTransport("MAZ", "256", FuelType.ELECTRICITY, 55, 120, 6, "Republic of Belarus", 800070, 7.7);
         Transport transport7 = new WheeledTransport("MAZ", "266", FuelType.COMPRESSED_NATURAL_GAS, 150, 90, 8, "Republic of Belarus", 700070, 18.9);
         
-        organization.getStorageInventoryNumbers().add(transport1);
-        organization.getStorageInventoryNumbers().add(transport2);
-        organization.getStorageInventoryNumbers().add(transport3);
-        organization.getStorageInventoryNumbers().add(transport4);
-        organization.getStorageInventoryNumbers().add(transport5);
-        organization.getStorageInventoryNumbers().add(transport6);
-        organization.getStorageInventoryNumbers().add(transport7);
+        busPark.getStorageInventoryNumbers().add(transport1);
+        busPark.getStorageInventoryNumbers().add(transport2);
+        busPark.getStorageInventoryNumbers().add(transport3);
+        busPark.getStorageInventoryNumbers().add(transport4);
+        busPark.getStorageInventoryNumbers().add(transport5);
+        busPark.getStorageInventoryNumbers().add(transport6);
+        busPark.getStorageInventoryNumbers().add(transport7);
+
+        System.out.println(busPark.toString());
     }
 }

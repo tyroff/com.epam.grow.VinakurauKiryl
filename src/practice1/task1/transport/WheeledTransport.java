@@ -23,6 +23,6 @@ public class WheeledTransport extends Transport {
     public String toString() {
         return super.toString() +
                 "\n     numberOfWheels = " + numberOfWheels +
-                "\n     fuelConsumption = " + fuelConsumption;
+                "\n     fuelConsumption = " + fuelConsumption + "\n\n";
     }
 }

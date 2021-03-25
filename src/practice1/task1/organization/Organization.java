@@ -71,7 +71,8 @@ public final class Organization {
     public String toString() {
         return name + ": " +
                 "\n     legalAddress: " + legalAddress.toString() +
-                "\n     physicalAddress: " + physicalAddress.toString() +
-                "\n     numberEmployees: " + numberEmployees;
+                "\n\n     physicalAddress: " + physicalAddress.toString() +
+                "\n\n     numberEmployees: " + numberEmployees +
+                "\n\n     storageInventoryNumbers:" + storageInventoryNumbers.toString();
     }
 }

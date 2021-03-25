@@ -59,16 +59,6 @@ public abstract class Transport extends InventoryEntity {
     }
 
     @Override
-    public String toString() {
-        return  mark + " " + model +
-                "\n     fuelType = " + fuelType +
-                "\n     maxCapacityOfPeople = " + maxCapacityOfPeople +
-                "\n     maxSpeed = " + maxSpeed +
-                "\n     countryOfManufacture = " + countryOfManufacture +
-                "\n     price = " + price;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -79,5 +69,15 @@ public abstract class Transport extends InventoryEntity {
     @Override
     public int hashCode() {
         return Objects.hash(mark, model, fuelType, maxCapacityOfPeople, maxSpeed, countryOfManufacture, price);
+    }
+
+    @Override
+    public String toString() {
+        return  "\n" + mark + " " + model +
+                "\n     fuelType = " + fuelType +
+                "\n     maxCapacityOfPeople = " + maxCapacityOfPeople +
+                "\n     maxSpeed = " + maxSpeed +
+                "\n     countryOfManufacture = " + countryOfManufacture +
+                "\n     price = " + price;
     }
 }
