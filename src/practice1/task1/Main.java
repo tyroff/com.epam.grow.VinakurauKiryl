@@ -9,8 +9,6 @@ import practice1.task1.transport.FuelType;
 import practice1.task1.transport.Transport;
 import practice1.task1.transport.WheeledTransport;
 
-import java.util.Map;
-
 public class Main {
 
     public static void main(String[] args) {
