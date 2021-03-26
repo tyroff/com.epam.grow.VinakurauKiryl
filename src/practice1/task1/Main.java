@@ -38,5 +38,6 @@ public class Main {
 
         System.out.println("Cost autoPark: " + StorageInventoryNumbersImpl.coastAutoPark(autoPark.getStorageInventoryNumbers().readAll()) + " $");
         StorageInventoryNumbersImpl.wheeledTransportFuelConsumptionComparator(autoPark.getStorageInventoryNumbers().readAll());
+        StorageInventoryNumbersImpl.sortByRangeWheeledTransport(autoPark.getStorageInventoryNumbers().readAll());
     }
 }
