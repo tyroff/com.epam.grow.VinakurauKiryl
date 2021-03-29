@@ -1,4 +1,4 @@
-package practice1.task1.address;
+package practice2.task2.address;
 
 import java.util.Objects;
 
@@ -17,6 +17,10 @@ public final class Address {
     private String street;
     private int houseNumber;
     private int indexNumber;
+
+    public Address() {
+
+    }
 
     public Address(Country country, String town, String street, int houseNumber, int indexNumber) {
         this.country = country;

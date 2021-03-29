@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * @author Kiryl_Vinakurau
  */
-public final class StorageInventoryNumbersImpl {
+public final class StorageInventoryNumbersUtil {
 
     private static Integer totalCost;
 

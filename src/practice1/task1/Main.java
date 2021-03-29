@@ -4,7 +4,7 @@ package practice1.task1;
 import practice1.task1.address.Address;
 import practice1.task1.address.Country;
 import practice1.task1.organization.Organization;
-import practice1.task1.organization.StorageInventoryNumbersImpl;
+import practice1.task1.organization.StorageInventoryNumbersUtil;
 import practice1.task1.transport.FuelType;
 import practice1.task1.transport.Transport;
 import practice1.task1.transport.WheeledTransport;
@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         Address legalAddress = new Address(Country.BELARUS, "Vitebsk", "Komsomol'skaya", 17, 11);
-        Address physicalAddress = new Address(Country.BELARUS, "Vitebsk", "Tereshkovoj", 7, 0);
+        Address physicalAddress = new Address(Country.BELARUS, "Vitebsk", "Tereshkovoj", 7);
         Organization autoPark = new Organization("Bus Deport #1", legalAddress, physicalAddress, 13);
 
         Transport transport1 = new WheeledTransport("MAZ", "206", FuelType.DIESEL_FUEL, 72, 90, 4, "Republic of Belarus", 1000000, 15.3);
@@ -34,8 +34,8 @@ public class Main {
 
         System.out.println(autoPark.toString());
 
-        System.out.println("Cost autoPark: " + StorageInventoryNumbersImpl.coastAutoPark(autoPark.getStorageInventoryNumbers().readAll()) + " $");
-        StorageInventoryNumbersImpl.wheeledTransportFuelConsumptionComparator(autoPark.getStorageInventoryNumbers().readAll());
-        StorageInventoryNumbersImpl.sortByRangeWheeledTransport(autoPark.getStorageInventoryNumbers().readAll());
+        System.out.println("Cost autoPark: " + StorageInventoryNumbersUtil.coastAutoPark(autoPark.getStorageInventoryNumbers().readAll()) + " $");
+        StorageInventoryNumbersUtil.wheeledTransportFuelConsumptionComparator(autoPark.getStorageInventoryNumbers().readAll());
+        StorageInventoryNumbersUtil.sortByRangeWheeledTransport(autoPark.getStorageInventoryNumbers().readAll());
     }
 }
