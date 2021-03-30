@@ -1,18 +1,16 @@
-package practice1.task1.organization;
+package practice1.task1.utils;
 
 import practice1.task1.InventoryEntity;
 import practice1.task1.transport.WheeledTransport;
-import practice1.task1.transport.WheeledTransportFuelConsumptionComparator;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Implements other specific methods of class {@link practice1.task1.organization.StorageInventoryNumbers}
- *
  * @author Kiryl_Vinakurau
  */
-public final class StorageInventoryNumbersImpl {
+public final class StorageInventoryNumbersUtil {
 
     private static Integer totalCost;
 
@@ -27,15 +25,13 @@ public final class StorageInventoryNumbersImpl {
     }
 
     /**
-     * Sorts the {@link practice1.task1.transport.WheeledTransport} object by the {@code fuelConsumption} parameter
-     * and prints the value to the console.
+     * Sorts the {@link practice1.task1.transport.WheeledTransport} object by the {@code fuelConsumption} parameter.
      */
-    public static void wheeledTransportFuelConsumptionComparator(Map<Integer, ? extends InventoryEntity> mapInventoryEntity) {
+    public static TreeSet wheeledTransportFuelConsumptionComparator(Map<Integer, ? extends InventoryEntity> mapInventoryEntity) {
         Comparator<WheeledTransport> comparator = new WheeledTransportFuelConsumptionComparator();
         TreeSet<WheeledTransport> transportTreeSet = new TreeSet(comparator);
         mapInventoryEntity.forEach((k, v) -> transportTreeSet.add((WheeledTransport) v));
-        System.out.println("\n==============================================\nSorted by fuelConsumption: ");
-        transportTreeSet.forEach(wheeledTransport -> System.out.print(wheeledTransport));
+        return transportTreeSet;
     }
 
     /**
@@ -81,8 +77,8 @@ public final class StorageInventoryNumbersImpl {
                 });
                 AtomicInteger count = new AtomicInteger();
                 wheeledTransportMap.forEach((k, v) -> {
-                    if(v.getMaxCapacityOfPeople() >= minCapacityOfPeople && v.getMaxCapacityOfPeople() <= maxCapacityOfPeople){
-                        if(v.getMaxSpeed() >= minSpeed && v.getMaxSpeed() <= maxSpeed) {
+                    if(v.getMaxCapacityOfPeople() >= minCapacityOfPeople && v.getMaxCapacityOfPeople() >= maxCapacityOfPeople){
+                        if(v.getMaxSpeed() >= minSpeed && v.getMaxSpeed() >= maxSpeed) {
                             System.out.println(v);
                             count.getAndIncrement();
                         }

@@ -7,6 +7,7 @@ import java.util.Objects;
  * city name, street name, house number and building number.
  *
  * <p>
+ *
  * @author Kiryl_Vinakurau
  * </p>
  */
@@ -51,7 +52,8 @@ public final class Address {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
-        return houseNumber == address.houseNumber && indexNumber == address.indexNumber && country == address.country && Objects.equals(town, address.town) && Objects.equals(street, address.street);
+        return houseNumber == address.houseNumber && indexNumber == address.indexNumber && country == address.country
+                && Objects.equals(town, address.town) && Objects.equals(street, address.street);
     }
 
     @Override
@@ -61,10 +63,7 @@ public final class Address {
 
     @Override
     public String toString() {
-        return  "\n     country = " + country +
-                "\n     town = '" + town + '\'' +
-                "\n     street = '" + street + '\'' +
-                "\n     houseNumber = " + houseNumber +
-                "\n     indexNumber = " + indexNumber;
+        return "\n     country = " + country + "\n     town = '" + town + '\'' + "\n     street = '" + street + '\''
+                + "\n     houseNumber = " + houseNumber + "\n     indexNumber = " + indexNumber;
     }
 }

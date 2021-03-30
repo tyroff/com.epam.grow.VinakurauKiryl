@@ -1,4 +1,6 @@
-package practice1.task1.transport;
+package practice1.task1.utils;
+
+import practice1.task1.transport.WheeledTransport;
 
 import java.util.Comparator;
 

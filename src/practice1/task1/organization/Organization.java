@@ -59,7 +59,8 @@ public final class Organization {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Organization that = (Organization) o;
-        return numberEmployees == that.numberEmployees && Objects.equals(name, that.name) && Objects.equals(legalAddress, that.legalAddress) && Objects.equals(physicalAddress, that.physicalAddress);
+        return numberEmployees == that.numberEmployees && Objects.equals(name, that.name) &&
+                Objects.equals(legalAddress, that.legalAddress) && Objects.equals(physicalAddress, that.physicalAddress);
     }
 
     @Override
