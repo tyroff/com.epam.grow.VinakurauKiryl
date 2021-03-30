@@ -1,5 +1,8 @@
 package practice1.task1;
 
+import practice1.task1.annotation.ProdCode;
+import practice1.task1.annotation.UseStackOnly;
+
 import java.io.Serializable;
 
 /**
@@ -13,10 +16,12 @@ import java.io.Serializable;
 public abstract class InventoryEntity implements Serializable {
     private int price;
 
+    @ProdCode
     public int getPrice() {
         return price;
     }
 
+    @ProdCode
     public void setPrice(int price) {
         this.price = price;
     }

@@ -1,5 +1,8 @@
 package practice1.task1.transport;
 
+import practice1.task1.annotation.ProdCode;
+import practice1.task1.annotation.UseStackOnly;
+
 import java.util.Objects;
 
 /**
@@ -7,7 +10,6 @@ import java.util.Objects;
  * and objects of this class describe wheeled vehicles moving on the ground.
  */
 public class WheeledTransport extends Transport {
-
     private int numberOfWheels;
     private double fuelConsumption;
 
@@ -18,14 +20,17 @@ public class WheeledTransport extends Transport {
         this.fuelConsumption = fuelConsumption;
     }
 
+    @ProdCode
     public int getNumberOfWheels() {
         return numberOfWheels;
     }
 
+    @ProdCode
     public double getFuelConsumption() {
         return fuelConsumption;
     }
 
+    @ProdCode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -35,11 +40,13 @@ public class WheeledTransport extends Transport {
         return numberOfWheels == that.numberOfWheels && Double.compare(that.fuelConsumption, fuelConsumption) == 0;
     }
 
+    @ProdCode
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), numberOfWheels, fuelConsumption);
     }
 
+    @ProdCode
     @Override
     public String toString() {
         return super.toString() +

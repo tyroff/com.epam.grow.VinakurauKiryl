@@ -1,6 +1,7 @@
 package practice1.task1.utils;
 
 import practice1.task1.InventoryEntity;
+import practice1.task1.annotation.ProdCode;
 import practice1.task1.transport.WheeledTransport;
 
 import java.util.*;
@@ -11,13 +12,13 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author Kiryl_Vinakurau
  */
 public final class StorageInventoryNumbersUtil {
-
     private static Integer totalCost;
 
     /**
      * Calculates the total cost of objects of type {@code <? extends InventoryEntity>}
      * @return total cost of objects of type X
      */
+    @ProdCode
     public static Integer coastAutoPark(Map<Integer, ? extends InventoryEntity> mapInventoryEntity){
         totalCost = 0;
         mapInventoryEntity.forEach((k, v) -> totalCost += v.getPrice()) ;
@@ -27,6 +28,7 @@ public final class StorageInventoryNumbersUtil {
     /**
      * Sorts the {@link practice1.task1.transport.WheeledTransport} object by the {@code fuelConsumption} parameter.
      */
+    @ProdCode
     public static TreeSet wheeledTransportFuelConsumptionComparator(Map<Integer, ? extends InventoryEntity> mapInventoryEntity) {
         Comparator<WheeledTransport> comparator = new WheeledTransportFuelConsumptionComparator();
         TreeSet<WheeledTransport> transportTreeSet = new TreeSet(comparator);
@@ -39,6 +41,7 @@ public final class StorageInventoryNumbersUtil {
      * of parameters {@code CapacityOfPeople} and {@code Speed}.
      * When objects that meet the entered parameters are found, it outputs them to the console.
      */
+    @ProdCode
     public static void sortByRangeWheeledTransport(Map<Integer, ? extends InventoryEntity> mapInventoryEntity) {
         int minCapacityOfPeople;
         int maxCapacityOfPeople;

@@ -1,6 +1,7 @@
 package practice1.task1.transport;
 
 import practice1.task1.InventoryEntity;
+import practice1.task1.annotation.ProdCode;
 
 import java.util.Objects;
 
@@ -27,30 +28,37 @@ public abstract class Transport extends InventoryEntity {
         super.setPrice(price);
     }
 
+    @ProdCode
     public String getMark() {
         return mark;
     }
 
+    @ProdCode
     public String getModel() {
         return model;
     }
 
+    @ProdCode
     public FuelType getFuelType() {
         return fuelType;
     }
 
+    @ProdCode
     public int getMaxCapacityOfPeople() {
         return maxCapacityOfPeople;
     }
 
+    @ProdCode
     public int getMaxSpeed() {
         return maxSpeed;
     }
 
+    @ProdCode
     public String getCountryOfManufacture() {
         return countryOfManufacture;
     }
 
+    @ProdCode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -61,11 +69,13 @@ public abstract class Transport extends InventoryEntity {
                 && fuelType == transport.fuelType && countryOfManufacture.equals(transport.countryOfManufacture);
     }
 
+    @ProdCode
     @Override
     public int hashCode() {
         return Objects.hash(super.getPrice(), mark, model, fuelType, maxCapacityOfPeople, maxSpeed, countryOfManufacture);
     }
 
+    @ProdCode
     @Override
     public String toString() {
         return "\n" + mark + " " + model + "\n     fuelType = " + fuelType + "\n     maxCapacityOfPeople = "

@@ -2,6 +2,7 @@ package practice1.task1;
 
 import practice1.task1.address.Address;
 import practice1.task1.address.Country;
+import practice1.task1.annotation.ProdCode;
 import practice1.task1.organization.Organization;
 import practice1.task1.utils.StorageInventoryNumbersUtil;
 import practice1.task1.transport.FuelType;
@@ -10,6 +11,7 @@ import practice1.task1.transport.WheeledTransport;
 
 public class Main {
 
+    @ProdCode
     public static void main(String[] args) {
         Address legalAddress = new Address(Country.BELARUS, "Vitebsk", "Komsomol'skaya", 17, 11);
         Address physicalAddress = new Address(Country.BELARUS, "Vitebsk", "Tereshkovoj", 7, 0);

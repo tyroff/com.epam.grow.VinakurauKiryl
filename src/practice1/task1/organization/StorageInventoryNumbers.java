@@ -1,6 +1,7 @@
 package practice1.task1.organization;
 
 import practice1.task1.InventoryEntity;
+import practice1.task1.annotation.ProdCode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,6 +32,7 @@ public final class StorageInventoryNumbers {
      * of type {@code <T extends InventoryEntity>}
      * @param entity it is object of type {@code <T extends InventoryEntity>}.
      */
+    @ProdCode
     public <T extends InventoryEntity> void add(T entity) {
         storageInventoryNumbers.put(++inventoryNumber, entity);
     }
@@ -40,6 +42,7 @@ public final class StorageInventoryNumbers {
      * by key {@code inventoryNumber}.
      * @param inventoryNumber key of an {@code Integer} value.
      */
+    @ProdCode
     public void deleteByInventoryNumber(Integer inventoryNumber) {
         storageInventoryNumbers.remove(inventoryNumber);
     }
@@ -50,6 +53,7 @@ public final class StorageInventoryNumbers {
      * @param inventoryNumber key of an {@code Integer} value.
      * @param entity it is object of type {@code <T extends InventoryEntity>}.
      */
+    @ProdCode
     public <T extends InventoryEntity> void updateByInventoryNumber(Integer inventoryNumber, T entity) {
         storageInventoryNumbers.put(inventoryNumber, entity);
     }
@@ -60,6 +64,7 @@ public final class StorageInventoryNumbers {
      * @param inventoryNumber key of an {@code Integer} value.
      * @return object of type {@code <T extends InventoryEntity>}.
      */
+    @ProdCode
     public <T extends InventoryEntity> T readByInventoryNumber(Integer inventoryNumber) {
         return (T) storageInventoryNumbers.get(inventoryNumber);
     }
@@ -68,10 +73,12 @@ public final class StorageInventoryNumbers {
      * Finds all objects of type {@code <T extends InventoryEntity>} to the {@code Map<Integer, ? super InventoryEntity> storageInventoryNumbers}.
      * @return a map with all keys and values.
      */
+    @ProdCode
     public Map<Integer, ? extends InventoryEntity> readAll() {
         return (Map<Integer, ? extends InventoryEntity>) storageInventoryNumbers;
     }
 
+    @ProdCode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -80,11 +87,13 @@ public final class StorageInventoryNumbers {
         return Objects.equals(storageInventoryNumbers, that.storageInventoryNumbers);
     }
 
+    @ProdCode
     @Override
     public int hashCode() {
         return Objects.hash(storageInventoryNumbers);
     }
 
+    @ProdCode
     @Override
     public String toString() {
         return "\n" + storageInventoryNumbers;
