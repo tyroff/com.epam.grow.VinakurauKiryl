@@ -17,6 +17,7 @@ public class Main {
     static WheeledTransport wheeledTransport = new WheeledTransport();
     static StorageInventoryNumbersUtil storageInventoryNumbersUtil = new StorageInventoryNumbersUtil();
 
+    @ProdCode
     public static void main(String[] args) {
         Address legalAddress = new Address(Country.BELARUS, "Vitebsk", "Komsomol'skaya", 17, 11);
         Address physicalAddress = new Address(Country.BELARUS, "Vitebsk", "Tereshkovoj", 7);
@@ -48,7 +49,8 @@ public class Main {
         System.out.println(autoPark.toString());
 
         System.out.println("Cost autoPark: " + StorageInventoryNumbersUtil.coastAutoPark(autoPark.getStorageInventoryNumbers().readAll()) + " $");
-        StorageInventoryNumbersUtil.wheeledTransportFuelConsumptionComparator(autoPark.getStorageInventoryNumbers().readAll());
+        System.out.println("\n==============================================\nSorted by fuelConsumption: ");
+        StorageInventoryNumbersUtil.wheeledTransportFuelConsumptionComparator(autoPark.getStorageInventoryNumbers().readAll()).forEach(wheeledTransport -> System.out.print(wheeledTransport));;
         StorageInventoryNumbersUtil.sortByRangeWheeledTransport(autoPark.getStorageInventoryNumbers().readAll());
     }
 }
