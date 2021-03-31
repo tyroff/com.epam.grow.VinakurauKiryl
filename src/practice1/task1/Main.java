@@ -8,6 +8,7 @@ import practice1.task1.transport.FuelType;
 import practice1.task1.transport.Transport;
 import practice1.task1.transport.WheeledTransport;
 import practice1.task1.utils.StorageInventoryNumbersUtil;
+import practice2.task3.annotation.ProdCode;
 
 public class Main {
 
