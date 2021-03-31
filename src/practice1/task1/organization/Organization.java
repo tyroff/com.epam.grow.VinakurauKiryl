@@ -8,9 +8,8 @@ import java.util.Objects;
  * All objects of the {@code final class Organization} contain
  * the name, legal address, physical address, the number of employees
  * and {@link practice1.task1.organization.StorageInventoryNumbers}.
- * <p>
+ *
  * @author Kiryl_Vinakurau
- * </p>
  */
 public final class Organization {
 
@@ -20,12 +19,20 @@ public final class Organization {
     private int numberEmployees;
     private StorageInventoryNumbers storageInventoryNumbers;
 
+    public Organization() {
+        name = "organization";
+        legalAddress = new Address();
+        physicalAddress = new Address();
+        numberEmployees = 1;
+        storageInventoryNumbers = new StorageInventoryNumbers();
+    }
+
     public Organization(String name, Address legalAddress, Address physicalAddress, int numberEmployees) {
         this.name = name;
         this.legalAddress = legalAddress;
         this.physicalAddress = physicalAddress;
         this.numberEmployees = numberEmployees;
-        if(storageInventoryNumbers == null) {
+        if (storageInventoryNumbers == null) {
             storageInventoryNumbers = new StorageInventoryNumbers();
         }
     }
@@ -59,7 +66,8 @@ public final class Organization {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Organization that = (Organization) o;
-        return numberEmployees == that.numberEmployees && Objects.equals(name, that.name) && Objects.equals(legalAddress, that.legalAddress) && Objects.equals(physicalAddress, that.physicalAddress);
+        return numberEmployees == that.numberEmployees && Objects.equals(name, that.name)
+            && Objects.equals(legalAddress, that.legalAddress) && Objects.equals(physicalAddress, that.physicalAddress);
     }
 
     @Override
@@ -70,9 +78,9 @@ public final class Organization {
     @Override
     public String toString() {
         return name + ": " +
-                "\n     legalAddress: " + legalAddress.toString() +
-                "\n\n     physicalAddress: " + physicalAddress.toString() +
-                "\n\n     numberEmployees: " + numberEmployees +
-                "\n\n     storageInventoryNumbers:" + storageInventoryNumbers.toString();
+            "\n     legalAddress: " + legalAddress.toString() +
+            "\n\n     physicalAddress: " + physicalAddress.toString() +
+            "\n\n     numberEmployees: " + numberEmployees +
+            "\n\n     storageInventoryNumbers:" + storageInventoryNumbers.toString();
     }
 }

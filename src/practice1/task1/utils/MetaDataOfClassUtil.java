@@ -1,11 +1,16 @@
-package practice2.task2.utils;
+package practice1.task1.utils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 public class MetaDataOfClassUtil {
-    public void getClassFields(Class<?> cls)
-    {
+
+    /**
+     * Prints the field name and field type of the resulting class to the console.
+     *
+     * @param cls class.
+     */
+    public void getClassFields(Class<?> cls) {
         Field[] fields = cls.getDeclaredFields();
         System.out.println("    Fields:");
         for (Field field : fields) {
@@ -16,8 +21,13 @@ public class MetaDataOfClassUtil {
         }
     }
 
-    public void getClassMethods(Class<?> cls)
-    {
+    /**
+     * Prints to the console the name of the method, the type of the method, and the type or types of the method
+     * input parameters of the resulting class.
+     *
+     * @param cls class.
+     */
+    public void getClassMethods(Class<?> cls) {
         Method[] methods = cls.getDeclaredMethods();
         System.out.println("    Methods:");
         for (Method method : methods) {

@@ -15,7 +15,7 @@ public class ListIteratorExample {
 
         ListIterator<String> listIterator = list.listIterator();
 
-        while(listIterator.hasNext()) {
+        while (listIterator.hasNext()) {
             System.out.println(listIterator.next());
         }
 
@@ -23,7 +23,7 @@ public class ListIteratorExample {
 
         System.out.println();
         // пройти по элементам в обратном направлении
-        while(listIterator.hasPrevious()) {
+        while (listIterator.hasPrevious()) {
             System.out.println(listIterator.previous());
         }
 

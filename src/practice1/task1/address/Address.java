@@ -6,17 +6,22 @@ import java.util.Objects;
  * All objects of the {@code final class Address} contain the country name,
  * city name, street name, house number and building number.
  *
- * <p>
  * @author Kiryl_Vinakurau
- * </p>
  */
-
 public final class Address {
     private Country country;
     private String town;
     private String street;
     private int houseNumber;
     private int indexNumber;
+
+    public Address() {
+        country = Country.BELARUS;
+        town = "town";
+        street = "street";
+        houseNumber = 0;
+        indexNumber = 0;
+    }
 
     public Address(Country country, String town, String street, int houseNumber, int indexNumber) {
         this.country = country;
@@ -59,7 +64,8 @@ public final class Address {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
-        return houseNumber == address.houseNumber && indexNumber == address.indexNumber && country == address.country && Objects.equals(town, address.town) && Objects.equals(street, address.street);
+        return houseNumber == address.houseNumber && indexNumber == address.indexNumber && country == address.country
+                && Objects.equals(town, address.town) && Objects.equals(street, address.street);
     }
 
     @Override
@@ -69,7 +75,7 @@ public final class Address {
 
     @Override
     public String toString() {
-        return  "\n     country = " + country +
+        return "\n     country = " + country +
                 "\n     town = '" + town + '\'' +
                 "\n     street = '" + street + '\'' +
                 "\n     houseNumber = " + houseNumber +

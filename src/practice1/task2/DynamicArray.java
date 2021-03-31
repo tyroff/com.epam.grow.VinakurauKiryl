@@ -22,11 +22,11 @@ public class DynamicArray {
     }
 
     public void add(double e) {
-        if(size == index) {
+        if (size == index) {
             double[] temp = array;
             size = size + 10;
             array = new double[size];
-            for(int i = 0; temp.length > i; i++) {
+            for (int i = 0; temp.length > i; i++) {
                 array[i] = temp[i];
             }
         }
@@ -36,20 +36,20 @@ public class DynamicArray {
     public double get(int index) {
         return array[index];
     }
-    
+
     public void remove(int index) {
         int tempIndex = --this.index;
-        if(index == tempIndex) {
+        if (index == tempIndex) {
             array[index] = 0;
-        } else if(index == 0) {
-            for(int i = 0; tempIndex > i;) {
+        } else if (index == 0) {
+            for (int i = 0; tempIndex > i; ) {
                 array[i] = array[++i];
             }
             array[this.index] = 0;
-        } else if(index > 0 && index < tempIndex) {
+        } else if (index > 0 && index < tempIndex) {
             double[] temp = array;
             array = new double[size];
-            for (int i = 0; tempIndex > i;) {
+            for (int i = 0; tempIndex > i; ) {
                 if (i >= index) {
                     array[i] = temp[++i];
                 } else {
@@ -65,9 +65,9 @@ public class DynamicArray {
     @Override
     public String toString() {
         return "DynamicArray:" +
-                "\n     size = " + size +
-                "\n     index = " + index +
-                "\n     array = " + Arrays.toString(array) + "\n";
+            "\n     size = " + size +
+            "\n     index = " + index +
+            "\n     array = " + Arrays.toString(array) + "\n";
     }
 
     public static void main(String[] args) {

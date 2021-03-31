@@ -1,15 +1,13 @@
-package practice1.task1.organization;
+package practice1.task1.utils;
 
 import practice1.task1.InventoryEntity;
 import practice1.task1.transport.WheeledTransport;
-import practice1.task1.transport.WheeledTransportFuelConsumptionComparator;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Implements other specific methods of class {@link practice1.task1.organization.StorageInventoryNumbers}
- *
  * @author Kiryl_Vinakurau
  */
 public final class StorageInventoryNumbersUtil {
@@ -18,11 +16,12 @@ public final class StorageInventoryNumbersUtil {
 
     /**
      * Calculates the total cost of objects of type {@code <? extends InventoryEntity>}
+     *
      * @return total cost of objects of type X
      */
-    public static Integer coastAutoPark(Map<Integer, ? extends InventoryEntity> mapInventoryEntity){
+    public static Integer coastAutoPark(Map<Integer, ? extends InventoryEntity> mapInventoryEntity) {
         totalCost = 0;
-        mapInventoryEntity.forEach((k, v) -> totalCost += v.getPrice()) ;
+        mapInventoryEntity.forEach((k, v) -> totalCost += v.getPrice());
         return totalCost;
     }
 
@@ -48,47 +47,48 @@ public final class StorageInventoryNumbersUtil {
         int maxCapacityOfPeople;
         int minSpeed;
         int maxSpeed;
-        try(Scanner in = new Scanner(System.in)) {
+        try (Scanner in = new Scanner(System.in)) {
             System.out.print("\nCapacity of people:\n   Enter a natural number.\nMin = ");
             minCapacityOfPeople = in.nextInt();
-            if(minCapacityOfPeople < 0) {
+            if (minCapacityOfPeople < 0) {
                 throw new IllegalArgumentException();
             }
             System.out.print("\nEnter a natural number > Min.\nMax = ");
             maxCapacityOfPeople = in.nextInt();
-            if(maxCapacityOfPeople <= minCapacityOfPeople) {
+            if (maxCapacityOfPeople <= minCapacityOfPeople) {
                 throw new IllegalArgumentException();
             }
 
             System.out.print("\nSpeed:\n   Enter a natural number.\nMin = ");
             minSpeed = in.nextInt();
-            if(minSpeed < 0) {
+            if (minSpeed < 0) {
                 throw new IllegalArgumentException();
             }
             System.out.print("\nEnter a natural number > Min.\nMax = ");
             maxSpeed = in.nextInt();
-            if(maxSpeed <= minSpeed) {
+            if (maxSpeed <= minSpeed) {
                 throw new IllegalArgumentException();
             }
 
             Map<Integer, WheeledTransport> wheeledTransportMap;
-            if(!mapInventoryEntity.isEmpty()) {
+            if (!mapInventoryEntity.isEmpty()) {
                 wheeledTransportMap = new HashMap<>();
                 mapInventoryEntity.forEach((k, v) -> {
-                    if(v instanceof WheeledTransport) {
+                    if (v instanceof WheeledTransport) {
                         wheeledTransportMap.put(k, (WheeledTransport) v);
                     }
                 });
                 AtomicInteger count = new AtomicInteger();
                 wheeledTransportMap.forEach((k, v) -> {
-                    if(v.getMaxCapacityOfPeople() >= minCapacityOfPeople && v.getMaxCapacityOfPeople() <= maxCapacityOfPeople){
-                        if(v.getMaxSpeed() >= minSpeed && v.getMaxSpeed() <= maxSpeed) {
+                    if (v.getMaxCapacityOfPeople() >= minCapacityOfPeople
+                        && v.getMaxCapacityOfPeople() <= maxCapacityOfPeople) {
+                        if (v.getMaxSpeed() >= minSpeed && v.getMaxSpeed() <= maxSpeed) {
                             System.out.println(v);
                             count.getAndIncrement();
                         }
                     }
                 });
-                if(count.get() == 0) {
+                if (count.get() == 0) {
                     System.out.println("\nNot found!");
                 }
             } else {

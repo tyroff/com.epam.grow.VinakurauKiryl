@@ -1,6 +1,6 @@
 package examples.generics.conteiner;
 
-public class Camera extends Product{
+public class Camera extends Product {
     double pixel;
 
     @Override

@@ -1,14 +1,12 @@
 package practice2.task2;
 
-
-import practice2.task2.address.Address;
-import practice2.task2.address.Country;
-import practice2.task2.organization.Organization;
-import practice2.task2.transport.FuelType;
-import practice2.task2.transport.Transport;
-import practice2.task2.transport.WheeledTransport;
-import practice2.task2.utils.MetaDataOfClassUtil;
-import practice2.task2.utils.StorageInventoryNumbersUtil;
+import practice1.task1.address.Address;
+import practice1.task1.address.Country;
+import practice1.task1.organization.Organization;
+import practice1.task1.organization.StorageInventoryNumbers;
+import practice1.task1.transport.FuelType;
+import practice1.task1.transport.Transport;
+import practice1.task1.transport.WheeledTransport;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -22,29 +20,41 @@ public class Main {
     static Address address = new Address();
     static Organization organization = new Organization();
     static WheeledTransport wheeledTransport = new WheeledTransport();
-    static StorageInventoryNumbersUtil storageInventoryNumbersUtil = new StorageInventoryNumbersUtil();
+    static StorageInventoryNumbers storageInventoryNumbersUtil = new StorageInventoryNumbers();
 
     public static void main(String[] args) {
 
         try {
             Class<Address> addressClass = Address.class;
-            Constructor<Address> addressConstructor = addressClass.getConstructor(Country.class, String.class, String.class, int.class, int.class);
-            Constructor<Address> addressConstructor1 = addressClass.getConstructor(Country.class, String.class, String.class, int.class);
+            Constructor<Address> addressConstructor = addressClass.getConstructor(Country.class, String.class,
+                    String.class, int.class, int.class);
+            Constructor<Address> addressConstructor1 = addressClass.getConstructor(Country.class, String.class,
+                    String.class, int.class);
             Address legalAddress = addressConstructor.newInstance(Country.BELARUS, "Vitebsk", "Komsomol'skaya", 17, 11);
             Address physicalAddress = addressConstructor1.newInstance(Country.BELARUS, "Vitebsk", "Tereshkovoj", 7);
 
             Class<Organization> organizationClass = Organization.class;
-            Constructor<Organization> organizationConstructor = organizationClass.getConstructor(String.class, Address.class, Address.class, int.class);
-            Organization autoPark = organizationConstructor.newInstance("Bus Deport #1", legalAddress, physicalAddress, 13);
+            Constructor<Organization> organizationConstructor = organizationClass.getConstructor(String.class,
+                    Address.class, Address.class, int.class);
+            Organization autoPark = organizationConstructor.newInstance("Bus Deport #1", legalAddress,
+                    physicalAddress, 13);
 
             Class<WheeledTransport> transportClass = WheeledTransport.class;
-            Constructor<WheeledTransport> wheeledTransportConstructor = transportClass.getConstructor(String.class, String.class, FuelType.class, int.class, int.class, int.class, String.class, int.class, double.class);
-            Transport transport1 = wheeledTransportConstructor.newInstance("MAZ", "206", FuelType.DIESEL_FUEL, 72, 90, 4, "Republic of Belarus", 1000000, 15.3);
-            Transport transport2 = wheeledTransportConstructor.newInstance("MAZ", "216", FuelType.DIESEL_FUEL, 88, 80, 4, "Republic of Belarus", 999000, 14.8);
-            Transport transport3 = wheeledTransportConstructor.newInstance("MAZ", "226", FuelType.ELECTRICITY, 69, 110, 4, "Republic of Belarus", 1000002, 22.1);
-            Transport transport4 = wheeledTransportConstructor.newInstance("MAZ", "236", FuelType.DIESEL_FUEL, 96, 86, 4, "Republic of Belarus", 1100000, 9.4);
-            Transport transport5 = wheeledTransportConstructor.newInstance("MAZ", "246", FuelType.GASOLINE, 101, 78, 4, "Republic of Belarus", 1000900, 5.3);
-            Transport transport6 = wheeledTransportConstructor.newInstance("MAZ", "256", FuelType.ELECTRICITY, 55, 120, 6, "Republic of Belarus", 800070, 7.7);
+            Constructor<WheeledTransport> wheeledTransportConstructor = transportClass.getConstructor(String.class,
+                    String.class, FuelType.class, int.class, int.class, int.class, String.class, int.class,
+                    double.class);
+            Transport transport1 = wheeledTransportConstructor.newInstance("MAZ", "206", FuelType.DIESEL_FUEL, 72, 90
+                    , 4, "Republic of Belarus", 1000000, 15.3);
+            Transport transport2 = wheeledTransportConstructor.newInstance("MAZ", "216", FuelType.DIESEL_FUEL, 88, 80
+                    , 4, "Republic of Belarus", 999000, 14.8);
+            Transport transport3 = wheeledTransportConstructor.newInstance("MAZ", "226", FuelType.ELECTRICITY, 69,
+                    110, 4, "Republic of Belarus", 1000002, 22.1);
+            Transport transport4 = wheeledTransportConstructor.newInstance("MAZ", "236", FuelType.DIESEL_FUEL, 96, 86
+                    , 4, "Republic of Belarus", 1100000, 9.4);
+            Transport transport5 = wheeledTransportConstructor.newInstance("MAZ", "246", FuelType.GASOLINE, 101, 78,
+                    4, "Republic of Belarus", 1000900, 5.3);
+            Transport transport6 = wheeledTransportConstructor.newInstance("MAZ", "256", FuelType.ELECTRICITY, 55,
+                    120, 6, "Republic of Belarus", 800070, 7.7);
 
             WheeledTransport transport7 = new WheeledTransport();
             Class<? extends Transport> wheeledTransportClass = transport7.getClass();
@@ -74,7 +84,8 @@ public class Main {
             list.add(organization);
             list.add(wheeledTransport);
             list.add(storageInventoryNumbersUtil);
-            MetaDataOfClassUtil metaDataOfClassUtil = new MetaDataOfClassUtil();
+            practice1.task1.utils.MetaDataOfClassUtil metaDataOfClassUtil =
+                    new practice1.task1.utils.MetaDataOfClassUtil();
             list.forEach(obj -> {
                 System.out.println("Class name = " + obj.getClass().getSimpleName());
                 metaDataOfClassUtil.getClassFields(obj.getClass());
