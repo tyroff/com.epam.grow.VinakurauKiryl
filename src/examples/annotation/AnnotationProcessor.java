@@ -17,7 +17,7 @@ public class AnnotationProcessor {
         loadService("examples.annotation.LazyService");
         loadService("java.lang.String");
 
-        servicesMap.forEach((k, v) -> System.out.println("Key = " + k + " | Value = " + v));
+        servicesMap.forEach((k, v) -> System.out.println("Key = " + k + " | Value = " + v.getClass().getSimpleName()));
     }
 
     static void inspectService(Class<?> service) {

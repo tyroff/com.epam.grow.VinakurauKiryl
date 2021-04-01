@@ -1,5 +1,7 @@
 package practice1.task1.address;
 
+import practice2.task3.annotation.ThisCodeSmell;
+
 import java.util.Objects;
 
 /**
@@ -8,6 +10,8 @@ import java.util.Objects;
  *
  * @author Kiryl_Vinakurau
  */
+@ThisCodeSmell(reviewer = "Vinakurau Kiryl")
+@ThisCodeSmell(reviewer = "Vinakurau Kiryl")
 public final class Address {
     private Country country;
     private String town;
@@ -43,6 +47,7 @@ public final class Address {
         return country;
     }
 
+    @ThisCodeSmell(reviewer = "Kiryl Vinakurau")
     public String getTown() {
         return town;
     }

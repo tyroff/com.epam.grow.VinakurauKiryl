@@ -2,6 +2,7 @@ package practice1.task1.utils;
 
 import practice1.task1.InventoryEntity;
 import practice1.task1.transport.WheeledTransport;
+import practice2.task3.annotation.ThisCodeSmell;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -29,6 +30,7 @@ public final class StorageInventoryNumbersUtil {
      * Sorts the {@link practice1.task1.transport.WheeledTransport} object by the {@code fuelConsumption} parameter
      * and prints the value to the console.
      */
+    @ThisCodeSmell(reviewer = "Kiryl Vinakurau")
     public static TreeSet wheeledTransportFuelConsumptionComparator(Map<Integer, ? extends InventoryEntity> mapInventoryEntity) {
         Comparator<WheeledTransport> comparator = new WheeledTransportFuelConsumptionComparator();
         TreeSet<WheeledTransport> transportTreeSet = new TreeSet(comparator);
@@ -41,6 +43,7 @@ public final class StorageInventoryNumbersUtil {
      * of parameters {@code CapacityOfPeople} and {@code Speed}.
      * When objects that meet the entered parameters are found, it outputs them to the console.
      */
+    @ThisCodeSmell(reviewer = "Uladzislau Shalamitski")
     public static void sortByRangeWheeledTransport(Map<Integer, ? extends InventoryEntity> mapInventoryEntity) {
         int minCapacityOfPeople;
         int maxCapacityOfPeople;

@@ -1,17 +1,9 @@
 package practice2.task3.annotation;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Repeatable;
-import java.lang.annotation.Target;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 
-/**
- * @ThisCodeSmells(reviewer=”Petya”) which could be attached everywhere and could be repeatable
- */
-@Repeatable(ThisCodeSmell.class)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface ThisCodeSmells {
-    String reviewer();
-}
-
-@interface ThisCodeSmell {
-    ThisCodeSmells[] value();
+    ThisCodeSmell[] value();
 }

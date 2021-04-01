@@ -1,6 +1,7 @@
 package practice1.task1.organization;
 
 import practice1.task1.address.Address;
+import practice2.task3.annotation.ThisCodeSmell;
 
 import java.util.Objects;
 
@@ -11,14 +12,16 @@ import java.util.Objects;
  *
  * @author Kiryl_Vinakurau
  */
+@ThisCodeSmell(reviewer = "Kiryl Vinakurau")
 public final class Organization {
-
+    @ThisCodeSmell(reviewer = "Kiryl Vinakurau")
     private String name;
     private Address legalAddress;
     private Address physicalAddress;
     private int numberEmployees;
     private StorageInventoryNumbers storageInventoryNumbers;
 
+    @ThisCodeSmell(reviewer = "Kiryl Vinakurau")
     public Organization() {
         name = "organization";
         legalAddress = new Address();
