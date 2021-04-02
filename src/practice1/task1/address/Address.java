@@ -1,6 +1,7 @@
 package practice1.task1.address;
 
 import practice2.task3.annotation.ThisCodeSmell;
+import practice2.task3.annotation.ThisCodeSmells;
 
 import java.util.Objects;
 

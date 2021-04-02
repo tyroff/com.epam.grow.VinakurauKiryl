@@ -1,18 +1,25 @@
 package practice2.task4.utils;
 
+import practice2.task3.annotation.ThisCodeSmell;
 import practice2.task3.annotation.ThisCodeSmells;
 
-import java.sql.SQLOutput;
+import java.lang.reflect.Field;
 
 public class ThisCodeSmellsHandler {
 
     public void handle(String classPath) {
         try {
             Class<?> clazz = Class.forName(classPath);
-            if(clazz.isAnnotationPresent(ThisCodeSmells.class)) {
-                System.out.println("YES -> " + clazz.getSimpleName());
-            } else {
-                System.out.println("NO  -> " + clazz.getSimpleName());
+            if(clazz.isAnnotationPresent(ThisCodeSmells.class) || clazz.isAnnotationPresent(ThisCodeSmell.class) ) {
+                System.out.println("Class " + clazz.getSimpleName());
+            }
+            Field[] fields = clazz.getDeclaredFields();
+            for(Field field : fields) {
+                if(field.isAnnotationPresent(ThisCodeSmells.class) || field.isAnnotationPresent(ThisCodeSmell.class)) {
+                    System.out.println("YES " + field.getName());
+                } else {
+                    System.out.println("NO  " + field.getName());
+                }
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -21,9 +28,7 @@ public class ThisCodeSmellsHandler {
     /*
 if (ac.getClass().isAnnotationPresent(DoItLikeThis.class)) {
         // process the annotation, "ac" being the instance of the object we are inspecting
-
         }
-
         Field[] fields = ac.getClass().getDeclaredFields();
             for (Field field : fields) {
                 if (field.isAnnotationPresent(DoItLikeThat.class)) {
