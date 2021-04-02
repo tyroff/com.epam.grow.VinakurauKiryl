@@ -11,8 +11,6 @@ public class Main {
 
     public static void main(String[] args) {
         List<Class<?>> classes = ClassFinder.find("practice1.task1");
-        classes.forEach(nameClass -> {
-            thisCodeSmellsHandler.handle(nameClass.getName());
-        });
+        classes.forEach(nameClass -> thisCodeSmellsHandler.handle(nameClass.getName()));
     }
 }

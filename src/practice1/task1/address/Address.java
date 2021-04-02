@@ -12,9 +12,10 @@ import java.util.Objects;
  * @author Kiryl_Vinakurau
  */
 @ThisCodeSmell(reviewer = "Vinakurau Kiryl")
-@ThisCodeSmell(reviewer = "Vinakurau Kiryl")
+@ThisCodeSmell(reviewer = "Uladzislau Shalamitski")
 public final class Address {
     private Country country;
+    @ThisCodeSmell(reviewer = "Vinakurau Kiryl")
     private String town;
     private String street;
     private int houseNumber;
@@ -49,6 +50,7 @@ public final class Address {
     }
 
     @ThisCodeSmell(reviewer = "Kiryl Vinakurau")
+    @ThisCodeSmell(reviewer = "Uladzislau Shalamitski")
     public String getTown() {
         return town;
     }
@@ -61,6 +63,7 @@ public final class Address {
         return houseNumber;
     }
 
+    @ThisCodeSmell(reviewer = "Kiryl Vinakurau")
     public int getIndexNumber() {
         return indexNumber;
     }

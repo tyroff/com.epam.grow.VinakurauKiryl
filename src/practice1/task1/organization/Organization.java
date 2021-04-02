@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 @ThisCodeSmell(reviewer = "Kiryl Vinakurau")
 public final class Organization {
-    @ThisCodeSmell(reviewer = "Kiryl Vinakurau")
+    @ThisCodeSmell(reviewer = "Uladzislau Shalamitski")
     private String name;
     private Address legalAddress;
     private Address physicalAddress;

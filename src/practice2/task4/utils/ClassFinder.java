@@ -17,7 +17,7 @@ public class ClassFinder {
             " '%s' exists?";
 
     /**
-     * Returns a list of classes in a package
+     * Returns a list of classes in a package.
      */
     public static List<Class<?>> find(String scannedPackage) {
         String scannedPath = scannedPackage.replace(PKG_SEPARATOR, DIR_SEPARATOR);
@@ -33,6 +33,12 @@ public class ClassFinder {
         return classes;
     }
 
+    /**
+     * Finds all classes in the file.
+     * @param file file in which all available classes are searched.
+     * @param scannedPackage the path to the file.
+     * @return class list.
+     */
     private static List<Class<?>> find(File file, String scannedPackage) {
         List<Class<?>> classes = new ArrayList<>();
         String resource = scannedPackage + PKG_SEPARATOR + file.getName();
