@@ -14,7 +14,7 @@ public class IteratorExample {
         list.add("Spain");
 
         Iterator<String> iterator = list.iterator();
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
     }

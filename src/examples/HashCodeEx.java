@@ -46,8 +46,8 @@ public class HashCodeEx {
         Object object = new Object();
         String str1 = "Hello";
         String str2 = "World";
-        HashCodeEx hashCodeEx1 = new HashCodeEx(69273666,2);
-        HashCodeEx hashCodeEx2 = new HashCodeEx(1,3);
+        HashCodeEx hashCodeEx1 = new HashCodeEx(69273666, 2);
+        HashCodeEx hashCodeEx2 = new HashCodeEx(1, 3);
 
         System.out.println(object.hashCode());
         System.out.println(str1.hashCode());

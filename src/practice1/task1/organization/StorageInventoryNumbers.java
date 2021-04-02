@@ -11,9 +11,7 @@ import java.util.Objects;
  * It contains {@code Map <Integer, ? super InventoryEntity>} which stores all class objects
  * inherited from abstract class {@link practice1.task1.InventoryEntity} under the key {@code inventoryNumber}
  *
- * <p>
  * @author Kiryl_Vinakurau
- * </p>
  */
 public final class StorageInventoryNumbers {
 
@@ -25,10 +23,11 @@ public final class StorageInventoryNumbers {
     }
 
     /**
-     * Adds an object of type {@code <T extends InventoryEntity>} to the {@code Map<Integer, ? super InventoryEntity> storageInventoryNumbers}
-     * with key {@code inventoryNumber}.
+     * Adds an object of type {@code <T extends InventoryEntity>} to the {@code Map<Integer, ? super InventoryEntity>
+     * storageInventoryNumbers} with key {@code inventoryNumber}.
      * The key value is incremented by 1 after each addition of an object
      * of type {@code <T extends InventoryEntity>}
+     *
      * @param entity it is object of type {@code <T extends InventoryEntity>}.
      */
     public <T extends InventoryEntity> void add(T entity) {
@@ -36,8 +35,10 @@ public final class StorageInventoryNumbers {
     }
 
     /**
-     * Deletes an object of type {@code <T extends InventoryEntity>} to the {@code Map<Integer, ? super InventoryEntity> storageInventoryNumbers}
+     * Deletes an object of type {@code <T extends InventoryEntity>} to the {@code Map<Integer, ? super
+     * InventoryEntity> storageInventoryNumbers}
      * by key {@code inventoryNumber}.
+     *
      * @param inventoryNumber key of an {@code Integer} value.
      */
     public void deleteByInventoryNumber(Integer inventoryNumber) {
@@ -45,18 +46,22 @@ public final class StorageInventoryNumbers {
     }
 
     /**
-     * Updates an object of type {@code <T extends InventoryEntity>} to the {@code Map<Integer, ? super InventoryEntity> storageInventoryNumbers}
+     * Updates an object of type {@code <T extends InventoryEntity>} to the {@code Map<Integer, ? super
+     * InventoryEntity> storageInventoryNumbers}
      * by key {@code inventoryNumber}. The value key does not change.
+     *
      * @param inventoryNumber key of an {@code Integer} value.
-     * @param entity it is object of type {@code <T extends InventoryEntity>}.
+     * @param entity          it is object of type {@code <T extends InventoryEntity>}.
      */
     public <T extends InventoryEntity> void updateByInventoryNumber(Integer inventoryNumber, T entity) {
         storageInventoryNumbers.put(inventoryNumber, entity);
     }
 
     /**
-     * Finds an object of type {@code <T extends InventoryEntity>} to the {@code Map<Integer, ? super InventoryEntity> storageInventoryNumbers}
+     * Finds an object of type {@code <T extends InventoryEntity>} to the {@code Map<Integer, ? super
+     * InventoryEntity> storageInventoryNumbers}
      * by key {@code inventoryNumber}.
+     *
      * @param inventoryNumber key of an {@code Integer} value.
      * @return object of type {@code <T extends InventoryEntity>}.
      */
@@ -65,7 +70,9 @@ public final class StorageInventoryNumbers {
     }
 
     /**
-     * Finds all objects of type {@code <T extends InventoryEntity>} to the {@code Map<Integer, ? super InventoryEntity> storageInventoryNumbers}.
+     * Finds all objects of type {@code <T extends InventoryEntity>} to the {@code Map<Integer, ? super
+     * InventoryEntity> storageInventoryNumbers}.
+     *
      * @return a map with all keys and values.
      */
     public Map<Integer, ? extends InventoryEntity> readAll() {

@@ -14,7 +14,7 @@ public class Container<T extends Product> {
     }
 
     static void copy(List<? extends Product> src, List<? super Product> dest) {
-        for(Product p : src) {
+        for (Product p : src) {
             dest.add(p);
         }
     }

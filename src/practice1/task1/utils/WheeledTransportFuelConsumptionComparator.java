@@ -1,4 +1,6 @@
-package practice1.task1.transport;
+package practice1.task1.utils;
+
+import practice1.task1.transport.WheeledTransport;
 
 import java.util.Comparator;
 
@@ -45,6 +47,7 @@ public class WheeledTransportFuelConsumptionComparator implements Comparator<Whe
      */
     @Override
     public int compare(WheeledTransport o1, WheeledTransport o2) {
-        return (o1.getFuelConsumption() > o2.getFuelConsumption()) ? 1 : ((o1.getFuelConsumption() < o2.getFuelConsumption()) ? -1 : 0);
+        return (o1.getFuelConsumption() > o2.getFuelConsumption()) ? 1 :
+            ((o1.getFuelConsumption() < o2.getFuelConsumption()) ? -1 : 0);
     }
 }

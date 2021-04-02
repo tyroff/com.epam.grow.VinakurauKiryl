@@ -1,6 +1,6 @@
 package examples.generics.conteiner;
 
-public class Phone extends Product{
+public class Phone extends Product {
     String model;
 
     @Override
