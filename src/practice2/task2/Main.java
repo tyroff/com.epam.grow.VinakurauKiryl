@@ -15,6 +15,14 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The class uses a project from the {@code Practice 1 Task 1}.
+ * Uses reflection to instantiate all objects in client code through constructors (with or without arguments)
+ * Uses reflection API to populate private fields without setters
+ * Uses the reflection API to change method calls from direct to reflection in client code
+ * Prints out metadata for all classes in the application in a readable format (about all fields, methods, modifiers,
+ * etc.)
+ */
 public class Main {
 
     static Address address = new Address();

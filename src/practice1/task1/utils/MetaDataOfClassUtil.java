@@ -3,6 +3,11 @@ package practice1.task1.utils;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+/**
+ * A utility class that contains methods for providing information about the class of interest, such as: the name of
+ * the fields, the type of the fields, the name of the methods, the type of the methods, the type of the input
+ * parameters.
+ */
 public class MetaDataOfClassUtil {
 
     /**

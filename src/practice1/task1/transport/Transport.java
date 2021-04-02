@@ -61,20 +61,18 @@ public abstract class Transport extends InventoryEntity {
         return countryOfManufacture;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Transport)) return false;
+        if (!super.equals(o)) return false;
         Transport transport = (Transport) o;
-        return maxCapacityOfPeople == transport.maxCapacityOfPeople && maxSpeed == transport.maxSpeed
-            && Objects.equals(mark, transport.mark) && Objects.equals(model, transport.model)
-            && fuelType == transport.fuelType && Objects.equals(countryOfManufacture, transport.countryOfManufacture);
+        return maxCapacityOfPeople == transport.maxCapacityOfPeople && maxSpeed == transport.maxSpeed && mark.equals(transport.mark) && model.equals(transport.model) && fuelType == transport.fuelType && countryOfManufacture.equals(transport.countryOfManufacture);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(mark, model, fuelType, maxCapacityOfPeople, maxSpeed, countryOfManufacture);
+        return Objects.hash(super.hashCode(), mark, model, fuelType, maxCapacityOfPeople, maxSpeed, countryOfManufacture);
     }
 
     @Override
