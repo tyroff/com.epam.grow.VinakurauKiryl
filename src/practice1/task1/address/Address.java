@@ -1,7 +1,7 @@
 package practice1.task1.address;
 
+import practice2.task3.annotation.ProdCode;
 import practice2.task3.annotation.ThisCodeSmell;
-import practice2.task3.annotation.ThisCodeSmells;
 
 import java.util.Objects;
 
@@ -66,6 +66,14 @@ public final class Address {
     @ThisCodeSmell(reviewer = "Kiryl Vinakurau")
     public int getIndexNumber() {
         return indexNumber;
+    }
+
+    /**
+     * Displays a message on the console that this method has been started.
+     */
+    @ProdCode
+    public void prodCodeContains() {
+        System.out.println("Method prodCodeContains is started");
     }
 
     @Override
