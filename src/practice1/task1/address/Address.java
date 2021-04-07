@@ -1,5 +1,8 @@
 package practice1.task1.address;
 
+import practice2.task3.annotation.ProdCode;
+import practice2.task3.annotation.ThisCodeSmell;
+
 import java.util.Objects;
 
 /**
@@ -8,6 +11,8 @@ import java.util.Objects;
  *
  * @author Kiryl_Vinakurau
  */
+@ThisCodeSmell(reviewer = "Vinakurau Kiryl")
+@ThisCodeSmell(reviewer = "Uladzislau Shalamitski")
 public final class Address {
     private Country country;
     private String town;
@@ -43,6 +48,8 @@ public final class Address {
         return country;
     }
 
+    @ThisCodeSmell(reviewer = "Kiryl Vinakurau")
+    @ThisCodeSmell(reviewer = "Uladzislau Shalamitski")
     public String getTown() {
         return town;
     }
@@ -55,8 +62,17 @@ public final class Address {
         return houseNumber;
     }
 
+    @ThisCodeSmell(reviewer = "Kiryl Vinakurau")
     public int getIndexNumber() {
         return indexNumber;
+    }
+
+    /**
+     * Displays a message on the console that this method has been started.
+     */
+    @ProdCode
+    public void prodCodeContains() {
+        System.out.println("Method prodCodeContains is started");
     }
 
     @Override
