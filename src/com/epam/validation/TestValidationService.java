@@ -8,7 +8,7 @@ public class TestValidationService {
         address1.house = "N1";
 
         Address address2 = new Address();
-        address2.city = "Russia";
+        address2.city = null;
         address2.street = "Avenue";
         address2.house = "00";
 
@@ -20,7 +20,7 @@ public class TestValidationService {
         User user2 = new User();
         user2.setName("Kiryl");
         user2.setSurname("Vinakurau");
-        user2.setAddress(address1);
+        user2.setAddress(address2);
 
         ValidationService validationService = new ValidationService();
         System.out.println("address1 = " + validationService.validate(address1));

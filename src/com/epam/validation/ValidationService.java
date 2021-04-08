@@ -34,7 +34,6 @@ public class ValidationService {
                             } else if (typeFieldReceivedAddress == Short.TYPE && fieldReceivedAddress[j].getShort(address) <= 0) {
                                 return false;
                             } else if (typeFieldReceivedAddress == Integer.TYPE && fieldReceivedAddress[j].getInt(address) <= 0) {
-                                System.out.println("INTEGER TYPE");
                                 return false;
                             } else if (typeFieldReceivedAddress == Long.TYPE && fieldReceivedAddress[j].getLong(address) <= 0) {
                                 return false;
@@ -44,18 +43,12 @@ public class ValidationService {
                                 return false;
                             }
                         } else if (typeFieldReceivedAddress == String.class) {
-                            if (nameFieldReceivedAddress == "city") {
-                                if (!((String) fieldReceivedAddress[j].get(address)).contains("Bel")) {
-                                    return false;
-                                }
-                            } else if (nameFieldReceivedAddress == "street") {
-                                if (!((String) fieldReceivedAddress[j].get(address)).contains("Str")) {
-                                    return false;
-                                }
-                            } else if (nameFieldReceivedAddress == "house") {
-                                if (!((String) fieldReceivedAddress[j].get(address)).contains("N")) {
-                                    return false;
-                                }
+                            if (((String) fieldReceivedAddress[j].get(address)) == null) {
+                                return false;
+                            }
+                        } else if (typeFieldReceivedAddress instanceof Object) {
+                            if ((fieldReceivedAddress[j].get(address)) == null) {
+                                return false;
                             }
                         }
                     } catch (IllegalArgumentException e) {
@@ -100,7 +93,6 @@ public class ValidationService {
                             } else if (typeFieldReceivedUser == Short.TYPE && fieldReceivedUser[j].getShort(user) <= 0) {
                                 return false;
                             } else if (typeFieldReceivedUser == Integer.TYPE && fieldReceivedUser[j].getInt(user) <= 0) {
-                                System.out.println("INTEGER TYPE");
                                 return false;
                             } else if (typeFieldReceivedUser == Long.TYPE && fieldReceivedUser[j].getLong(user) <= 0) {
                                 return false;
@@ -110,18 +102,16 @@ public class ValidationService {
                                 return false;
                             }
                         } else if (typeFieldReceivedUser == String.class) {
-                            if (nameFieldReceivedUser == "name") {
-                                if (!((String) fieldReceivedUser[j].get(user)).contains("Na")) {
-                                    return false;
-                                }
-                            } else if (nameFieldReceivedUser == "surname") {
-                                if (!((String) fieldReceivedUser[j].get(user)).contains("Sur")) {
-                                    return false;
-                                }
+                            if (((String) fieldReceivedUser[j].get(user)) == null) {
+                                return false;
                             }
                         } else if (typeFieldReceivedUser == Address.class) {
                             if (nameFieldReceivedUser == "address") {
                                 return validate((Address) fieldReceivedUser[j].get(user));
+                            }
+                        } else if (typeFieldReceivedUser instanceof Object) {
+                            if ((fieldReceivedUser[j].get(user)) == null) {
+                                return false;
                             }
                         }
                     } catch (IllegalArgumentException e) {
