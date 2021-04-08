@@ -3,8 +3,8 @@ package com.epam.validation;
 public class TestValidationService {
     public static void main(String[] args) {
         Address address1 = new Address();
-        address1.city = "Belarus";
-        address1.street = "Street";
+        address1.city = "Vitebsk";
+        address1.street = "Stroiteley";
         address1.house = "N1";
 
         Address address2 = new Address();
@@ -20,7 +20,7 @@ public class TestValidationService {
         User user2 = new User();
         user2.setName("Kiryl");
         user2.setSurname("Vinakurau");
-        user2.setAddress(address2);
+        user2.setAddress(address1);
 
         ValidationService validationService = new ValidationService();
         System.out.println("address1 = " + validationService.validate(address1));
