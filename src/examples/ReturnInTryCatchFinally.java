@@ -1,6 +1,6 @@
 package examples;
 
-public class ExceptionTryCatchFinally {
+public class ReturnInTryCatchFinally {
     private static class TryReturn {
         public static int whatReturn() {
             try {
