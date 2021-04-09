@@ -10,6 +10,7 @@ public class Address {
     String street;
     String house;
     Coordinates coordinates;
+    LocationDescription locationDescription;
 
     /**
      * Validates a field of a given class by its NAME and VALUE of type {@code byte}.
@@ -107,6 +108,8 @@ public class Address {
      * method.
      */
     public Boolean isValid(String name, Object value) {
+        if (name == "coordinates" && value == null) return false;
+        if (name == "locationDescription" && value == null) return false;
         return true;
     }
 }
