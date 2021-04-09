@@ -1,4 +1,4 @@
-package com.epam.validation;
+package com.epam.validation.entities;
 
 import java.io.File;
 import java.util.Arrays;

@@ -1,11 +1,24 @@
-package com.epam.validation;
+package com.epam.validation.utils;
+
+import com.epam.validation.entities.Address;
+import com.epam.validation.entities.User;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+/**
+ * Performs validation of the {@link com.epam.validation.entities.User} and {@link com.epam.validation.entities.Address} classes.
+ *
+ * @author Kiryl_Vinakurau
+ */
 public class ValidationService {
 
+    /**
+     * Compares the fields of the incoming Address object with the fields of the {@link com.epam.validation.entities.Address} Class.
+     * @param address is an object, its fields must be checked against the fields of the {@link com.epam.validation.entities.Address} class.
+     * @return true if the parameter values match.
+     */
     public boolean validate(Address address) {
         Class<Address> addressClass = Address.class;
         Class<Address> receivedAddress = (Class<Address>) address.getClass();
@@ -98,6 +111,11 @@ public class ValidationService {
         return false;
     }
 
+    /**
+     * Compares the fields of the incoming Address object with the fields of the {@link com.epam.validation.entities.User} Class.
+     * @param user is an object, its fields must be checked against the fields of the {@link com.epam.validation.entities.User} class.
+     * @return true if the parameter values match.
+     */
     public boolean validate(User user) {
         Class<User> userClass = User.class;
         Class<User> receivedUser = (Class<User>) user.getClass();

@@ -1,4 +1,4 @@
-package com.epam.validation;
+package com.epam.validation.entities;
 
 import java.util.Objects;
 
@@ -8,7 +8,6 @@ import java.util.Objects;
  * @author Kiryl_Vinakurau
  */
 public final class Coordinates {
-
     private String latitude;
     private String longitude;
 

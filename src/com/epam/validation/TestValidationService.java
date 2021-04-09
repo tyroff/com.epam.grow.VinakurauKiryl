@@ -1,5 +1,11 @@
 package com.epam.validation;
 
+import com.epam.validation.entities.Address;
+import com.epam.validation.entities.Coordinates;
+import com.epam.validation.entities.LocationDescription;
+import com.epam.validation.entities.User;
+import com.epam.validation.utils.ValidationService;
+
 import java.io.File;
 
 public class TestValidationService {
@@ -20,18 +26,18 @@ public class TestValidationService {
         locationDescription1.setImages(images);
 
         Address address1 = new Address();
-        address1.city = "Vitebsk";
-        address1.street = "Stroiteley";
-        address1.house = "N11a";
-        address1.coordinates = coordinates1;
-        address1.locationDescription = locationDescription1;
+        address1.setCity("Vitebsk");
+        address1.setStreet("Stroiteley");
+        address1.setHouse("N11a");
+        address1.setCoordinates(coordinates1);
+        address1.setLocationDescription(locationDescription1);
 
         Address address2 = new Address();
-        address2.city = null;
-        address2.street = "Avenue";
-        address2.house = "00";
-        address2.coordinates = coordinates2;
-        address2.locationDescription = null;
+        address2.setCity(null);
+        address2.setStreet("Avenue");
+        address2.setHouse("00");
+        address2.setCoordinates(coordinates2);
+        address2.setLocationDescription(null);
 
         User user1 = new User();
         user1.setName("Name");

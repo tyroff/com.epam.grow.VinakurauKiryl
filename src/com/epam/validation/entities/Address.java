@@ -1,4 +1,6 @@
-package com.epam.validation;
+package com.epam.validation.entities;
+
+import java.util.Objects;
 
 /**
  * The {@code Address class} stores all the data about the location.
@@ -6,11 +8,51 @@ package com.epam.validation;
  * @author Kiryl_Vinakurau
  */
 public class Address {
-    String city;
-    String street;
-    String house;
-    Coordinates coordinates;
-    LocationDescription locationDescription;
+    private String city;
+    private String street;
+    private String house;
+    private Coordinates coordinates;
+    private LocationDescription locationDescription;
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getHouse() {
+        return house;
+    }
+
+    public void setHouse(String house) {
+        this.house = house;
+    }
+
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public LocationDescription getLocationDescription() {
+        return locationDescription;
+    }
+
+    public void setLocationDescription(LocationDescription locationDescription) {
+        this.locationDescription = locationDescription;
+    }
 
     /**
      * Validates a field of a given class by its NAME and VALUE of type {@code byte}.
@@ -111,5 +153,30 @@ public class Address {
         if (name == "coordinates" && value == null) return false;
         if (name == "locationDescription" && value == null) return false;
         return true;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return Objects.equals(city, address.city) && Objects.equals(street, address.street) && Objects.equals(house,
+                address.house) && Objects.equals(coordinates, address.coordinates) && Objects.equals(locationDescription, address.locationDescription);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(city, street, house, coordinates, locationDescription);
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", house='" + house + '\'' +
+                ", coordinates=" + coordinates +
+                ", locationDescription=" + locationDescription +
+                '}';
     }
 }
