@@ -2,6 +2,7 @@ package practice1.task1.transport;
 
 import practice1.task1.InventoryEntity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -9,12 +10,12 @@ import java.util.Objects;
  *
  * @author Kiryl Vinakurau
  */
-public abstract class Transport extends InventoryEntity {
+public abstract class Transport extends InventoryEntity implements Serializable {
     private String mark;
     private String model;
     private FuelType fuelType;
-    private int maxCapacityOfPeople;
-    private int maxSpeed;
+    private transient int maxCapacityOfPeople;
+    private transient int maxSpeed;
     private String countryOfManufacture;
 
     public Transport() {

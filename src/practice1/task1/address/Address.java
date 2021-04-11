@@ -1,5 +1,6 @@
 package practice1.task1.address;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -8,12 +9,12 @@ import java.util.Objects;
  *
  * @author Kiryl_Vinakurau
  */
-public final class Address {
+public final class Address implements Serializable {
     private Country country;
     private String town;
     private String street;
-    private int houseNumber;
-    private int indexNumber;
+    private transient int houseNumber;
+    private transient int indexNumber;
 
     public Address() {
         country = Country.BELARUS;
