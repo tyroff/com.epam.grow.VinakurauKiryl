@@ -8,7 +8,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input a path: ");
         String path = scanner.nextLine();
-        DiskAnalyzer.findFileMaxS(new File(path));
+        File file = new File(path);
+        DiskAnalyzer.findFileMaxS(file);
+        DiskAnalyzer.findFiveFilesMaxSize(file);
         scanner.close();
     }
 }
