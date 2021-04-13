@@ -16,11 +16,7 @@ public class Main {
             System.out.println("Object Address is was write.");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (NullPointerException | SecurityException | IOException e) {
             e.printStackTrace();
         }
 
@@ -31,11 +27,7 @@ public class Main {
             System.out.println("Object Transport is was write.");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (NullPointerException | SecurityException | IOException e) {
             e.printStackTrace();
         }
 
@@ -44,13 +36,7 @@ public class Main {
             System.out.println(addressRead.toString());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (NullPointerException | SecurityException | ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
 
@@ -59,13 +45,7 @@ public class Main {
             System.out.println(wheeledTransportRead.toString());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        } catch (SecurityException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (NullPointerException | SecurityException | ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
     }
