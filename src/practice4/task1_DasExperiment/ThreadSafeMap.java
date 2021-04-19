@@ -13,8 +13,12 @@ public final class ThreadSafeMap {
     private static int sumValues = 0;
     private static Class clazz = ThreadSafeMap.class;
 
-
-    public synchronized void workWithMap(Map map) {
+    /**
+     * General synchronized method for working with map threads.
+     *
+     * @param map general map for streams.
+     */
+    public synchronized void workWithMap(Map<Integer, Integer> map) {
         while (true) {
             if (key == seeKey) {
                 addInMap(map);
