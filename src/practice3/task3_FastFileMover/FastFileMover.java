@@ -39,7 +39,7 @@ public final class FastFileMover {
     public static void movingDirectoryUsingBuffer(File readPath, File writePath) {
         try (FileInputStream fin = new FileInputStream(readPath); FileOutputStream fos =
                 new FileOutputStream(writePath)) {
-            byte[] buffer = new byte[100];
+            byte[] buffer = new byte[100000];
             int noOfBytes = 0;
             while ((noOfBytes = fin.read(buffer)) != -1) {
                 fos.write(buffer, 0, noOfBytes);
