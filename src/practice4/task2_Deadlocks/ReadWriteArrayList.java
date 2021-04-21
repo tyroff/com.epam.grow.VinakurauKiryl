@@ -20,6 +20,7 @@ public class ReadWriteArrayList {
     private List<Integer> list = new ArrayList<>();
     private int sum = 0;
     private int sumSquareRoot = 0;
+    private final int END_ADD = 10;
 
     /**
      * Adds an element to the {@code ArrayList} collection and displays the name of the stream and the added element
@@ -27,18 +28,18 @@ public class ReadWriteArrayList {
      */
     public void add() {
         while (true) {
-            try {
+            for (int i = 0; i < END_ADD; i++) {
                 writeLock.lock();
-                for (int i = 0; i < 10; i++) {
+            try {
                     int j = (int) (Math.random() * 100);
                     list.add(j);
-                    sleep(800);
-                    System.out.println(Thread.currentThread().getName() + " -> Add number = " + j);
+                    sleep(200);
+                    System.out.println(Thread.currentThread().getName() + " -> Add = " + j);
+                } finally {
+                    writeLock.unlock();
                 }
-            } finally {
-                writeLock.unlock();
             }
-            sleep(2000);
+            sleep(1000);
         }
     }
 
@@ -50,8 +51,8 @@ public class ReadWriteArrayList {
         while (true) {
             readLock.lock();
             try {
-                sleep(500);
                 list.forEach(i -> sum += i);
+                sleep(1000);
                 System.out.println(Thread.currentThread().getName() + " -> Sum = " + sum);
                 sum = 0;
             } finally {
@@ -67,8 +68,9 @@ public class ReadWriteArrayList {
         while (true) {
             readLock.lock();
             try {
+                sleep(1000);
                 list.forEach(integer -> sumSquareRoot += Math.sqrt(integer));
-                System.out.println(Thread.currentThread().getName() + " -> Sum sqrt = " + Math.sqrt(sumSquareRoot));
+                System.out.println(Thread.currentThread().getName() + " -> Sqrt = " + Math.sqrt(sumSquareRoot));
                 sumSquareRoot = 0;
             } finally {
                 readLock.unlock();
