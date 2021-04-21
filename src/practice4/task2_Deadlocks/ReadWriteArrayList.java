@@ -90,17 +90,4 @@ public class ReadWriteArrayList {
             e.printStackTrace();
         }
     }
-
-    /**
-     * To handle exceptions in one place to reduce the amount of code.
-     *
-     * @param object an object to wait.
-     */
-    private void wait(Object object) {
-        try {
-            object.wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 }
