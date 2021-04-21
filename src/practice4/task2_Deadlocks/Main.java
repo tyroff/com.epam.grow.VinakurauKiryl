@@ -9,7 +9,6 @@ public class Main {
 
     private static int numberOperation = 1;
     private static List<Integer> list = new ArrayList<>();
-    //private static CopyOnWriteArrayList<Integer> list = new CopyOnWriteArrayList<>();
 
     public static void main(String[] args) {
         WriterToCollection writerToCollection = new WriterToCollection();
