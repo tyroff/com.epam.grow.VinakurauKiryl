@@ -15,7 +15,7 @@ public class CallableSample {
         for (int i = 0; i < 1_000_000; i++) {
             final int val = 1;
             Callable<Long> task = () -> {
-                TimeUnit.MILLISECONDS.sleep(1000);
+                TimeUnit.MILLISECONDS.sleep(100);
                 long result = val * val * val;
                 return result;
             };
