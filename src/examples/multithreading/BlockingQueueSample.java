@@ -3,7 +3,7 @@ package examples.multithreading;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-public class AlphabetSample {
+public class BlockingQueueSample {
 
     public static void main(String[] args) {
 
