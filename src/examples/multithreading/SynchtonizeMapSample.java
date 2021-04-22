@@ -1,15 +1,12 @@
 package examples.multithreading;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class UnsafeMapSample {
+public class SynchtonizeMapSample {
 
     public static void main(String[] args) {
-        Map<Integer, Integer> resource = new HashMap<>();
+        Map<Integer, Integer> resource = Collections.synchronizedMap(new HashMap<>());
         List<Thread> pool = new ArrayList<>();
 
         for (int i = 0; i < 10_000; i++) {
@@ -17,9 +14,9 @@ public class UnsafeMapSample {
             Thread t = new Thread(() -> {
                 try {
                     Thread.sleep(ThreadLocalRandom.current().nextInt(100));
-                    synchronized (resource) {
+ //                   synchronized (resource) {
                         resource.put(val, val + ((int) (Math.random() * 10)));
-                       }
+ //                   }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
