@@ -2,7 +2,7 @@ package examples;
 
 import java.rmi.NotBoundException;
 
-public class ExceptionInTryCatchFinally {
+public class TryCatchFinallyException {
     public static class ExceptionTry {
         public static void whatReturn() throws Exception {
             try {
