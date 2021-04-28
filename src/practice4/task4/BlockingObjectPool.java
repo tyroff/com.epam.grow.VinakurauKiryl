@@ -19,7 +19,7 @@ public class BlockingObjectPool {
      */
     public BlockingObjectPool(int size) {
         if (size > 0) capacity = size;
-        else if (size < 1) throw new NoSuchElementException();
+        else if (size < 1) throw new IllegalArgumentException();
     }
 
     /**
@@ -28,7 +28,7 @@ public class BlockingObjectPool {
      * @return object from pool
      */
     public Object get() {
-        while (pool.size() == 0) {
+        if (pool.size() == 0) {
             try {
                 wait();
             } catch (InterruptedException e) {
