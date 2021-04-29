@@ -1,6 +1,8 @@
 package practice4.task4;
 
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
+import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
@@ -10,7 +12,7 @@ import java.util.concurrent.BlockingQueue;
 public class BlockingObjectPool {
 
     private int capacity = 1;
-    private final BlockingQueue<Object> pool = new ArrayBlockingQueue<>(capacity);
+    private final Queue<Object> pool = new LinkedList<>();
 
     /**
      * Creates filled pool of passed size
@@ -19,7 +21,7 @@ public class BlockingObjectPool {
      */
     public BlockingObjectPool(int size) {
         if (size > 0) capacity = size;
-        else if (size < 1) throw new IllegalArgumentException();
+        else throw new IllegalArgumentException();
     }
 
     /**
@@ -27,7 +29,7 @@ public class BlockingObjectPool {
      *
      * @return object from pool
      */
-    public Object get() {
+    public synchronized Object get() {
         if (pool.size() == 0) {
             try {
                 wait();
@@ -39,11 +41,7 @@ public class BlockingObjectPool {
             notifyAll();
         }
         Object obj = new Object();
-        try {
-            obj = pool.take();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        obj = pool.peek();
         return obj;
     }
 
@@ -52,7 +50,7 @@ public class BlockingObjectPool {
      *
      * @param object to be taken back to pool
      */
-    public void take(Object object) {
+    public synchronized void take(Object object) {
         if (pool.size() == capacity) {
             try {
                 wait();
