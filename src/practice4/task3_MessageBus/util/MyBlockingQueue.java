@@ -17,7 +17,7 @@ public final class MyBlockingQueue<E> implements MyQueue<E>, java.io.Serializabl
     private int limit = 1;
 
     public MyBlockingQueue(int limit) {
-        this.limit = --limit;
+        this.limit = limit;
     }
 
     /**
