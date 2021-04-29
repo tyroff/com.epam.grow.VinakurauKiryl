@@ -1,6 +1,5 @@
 package practice4.task3_MessageBus.entity;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
@@ -9,9 +8,9 @@ import java.util.Objects;
  *
  * @author Kiryl_Vinakurau
  */
-public class BusMessage {
+public class TransportTimetable {
 
-    private int busNumber;
+    private int transportNumber;
     private Date departureTime;
 
     /**
@@ -20,30 +19,30 @@ public class BusMessage {
      *
      * @param maxBusNumber maximum bus number.
      */
-    public BusMessage(int maxBusNumber) {
-        busNumber = (int) (Math.random() * maxBusNumber + 1);
+    public TransportTimetable(int maxBusNumber) {
+        transportNumber = (int) (Math.random() * maxBusNumber + 1);
         departureTime = new Date(System.currentTimeMillis() + (int) (Math.random() * 86_400_000));
     }
 
-    public int getBusNumber() {
-        return busNumber;
+    public int getTransportNumber() {
+        return transportNumber;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        BusMessage that = (BusMessage) o;
-        return busNumber == that.busNumber && Objects.equals(departureTime, that.departureTime);
+        TransportTimetable that = (TransportTimetable) o;
+        return transportNumber == that.transportNumber && Objects.equals(departureTime, that.departureTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(busNumber, departureTime);
+        return Objects.hash(transportNumber, departureTime);
     }
 
     @Override
     public String toString() {
-        return "bus #" + busNumber +" | departure time: " + departureTime;
+        return "bus #" + transportNumber +" | departure time: " + departureTime;
     }
 }

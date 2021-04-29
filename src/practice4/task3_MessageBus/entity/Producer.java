@@ -13,7 +13,7 @@ public final class Producer implements Runnable {
 
     private final MyQueue queue;
     private int maxBusNumber;
-    private BusMessage message;
+    private TransportTimetable message;
 
     public Producer(MyQueue queue, int maxBusNumber) {
         this.queue = queue;
@@ -25,7 +25,7 @@ public final class Producer implements Runnable {
         while (true) {
             try {
                 TimeUnit.MILLISECONDS.sleep(700);
-                message = new BusMessage(maxBusNumber);
+                message = new TransportTimetable(maxBusNumber);
                 System.out.println(message.toString() + " " + Thread.currentThread().getName());
                 queue.put(message);
             } catch (InterruptedException e) {

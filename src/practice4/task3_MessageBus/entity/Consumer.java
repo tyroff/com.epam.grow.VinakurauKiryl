@@ -13,7 +13,7 @@ public class Consumer implements Runnable {
 
     private final MyQueue queue;
     private int desiredBusNumber;
-    private BusMessage message;
+    private TransportTimetable message;
 
     public Consumer(MyQueue queue, int desiredBusNumber) {
         this.queue = queue;
@@ -25,8 +25,8 @@ public class Consumer implements Runnable {
         while (true) {
             try {
                 TimeUnit.MILLISECONDS.sleep(700);
-                message = (BusMessage) queue.take();
-                if (desiredBusNumber == message.getBusNumber()) {
+                message = (TransportTimetable) queue.take();
+                if (desiredBusNumber == message.getTransportNumber()) {
                     System.out.println("\nThis is my bus :) -> " + message.toString() + " " + Thread.currentThread().getName() + "\n");
                 }
             } catch (InterruptedException e) {
