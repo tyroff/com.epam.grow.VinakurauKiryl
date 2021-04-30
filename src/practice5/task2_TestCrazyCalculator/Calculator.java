@@ -112,7 +112,7 @@ public class Calculator {
      * @param i1 number type double.
      * @return root number of type double.
      */
-    public static double division(double i1) {
+    public static double root(double i1) {
         return Math.sqrt(i1);
     }
 
