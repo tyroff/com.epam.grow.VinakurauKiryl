@@ -33,31 +33,31 @@ public class TestUtils {
     @Test
     public void testConcatenateWords() {
         assertEquals("test1", utils.concatenateWords("test", "1"));
-        System.out.println("Test testConcatenateWords() is completed");
+        System.out.println("+ Test testConcatenateWords() is completed");
     }
 
     @Test
     public void testComputeFactorial() {
         assertEquals(120, utils.computeFactorial(5));
-        System.out.println("Test testComputeFactorial() is completed");
+        System.out.println("+ Test testComputeFactorial() is completed");
     }
 
     @Test(timeout = 200)
     public void testFactorialWithTimeout() {
         assertEquals(120, utils.computeFactorial(5));
-        System.out.println("Test testFactorialWithTimeout() is completed");
+        System.out.println("+ Test testFactorialWithTimeout() is completed");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testExpectedException() {
         utils.computeFactorial(-5);
-        System.out.println("Test testExpectedException() is completed");
+        System.out.println("+ Test testExpectedException() is completed");
     }
 
     @Ignore
     @Test
     public void testNormalizeWord() {
         System.out.println(Normalizer.normalize("NoRMalIZed teXt", Normalizer.Form.NFD));
-        System.out.println("Test testNormalizeWord() isn't completed");
+        System.out.println("+ Test testNormalizeWord() isn't completed");
     }
 }
