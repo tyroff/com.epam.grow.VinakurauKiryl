@@ -81,8 +81,8 @@ public class Calculator {
      * @param i2 number type int.
      * @return division of two numbers of type int.
      */
-    public static int division(int i1, int i2) {
-        return i1 * i2;
+    public static double division(int i1, int i2) {
+        return i1 / i2;
     }
 
     /**
@@ -93,7 +93,7 @@ public class Calculator {
      * @return division of two numbers of type double.
      */
     public static double division(double i1, double i2) {
-        return i1 * i2;
+        return i1 / i2;
     }
 
     /**

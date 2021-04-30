@@ -38,7 +38,7 @@ class CalculatorPositiveTest {
 
     @Test
     void testDivisionInt() {
-        assertEquals(2, Calculator.division(8, 4));
+        assertEquals(2, Calculator.division(8, 4), 0);
     }
 
     @Test
