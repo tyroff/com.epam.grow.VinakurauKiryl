@@ -1,68 +1,82 @@
 package practice5.task2_TestCrazyCalculator;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-class CalculatorPositiveTest {
+public class CalculatorPositiveTest {
 
-    @Test
-    void testAdditionInt() {
-        assertEquals(13, Calculator.addition(1, 12));
+    private Calculator calculator;
+
+    @Before
+    public void setUp() {
+        calculator = new Calculator();
+    }
+
+    @After
+    public void tearDown() {
+        calculator = null;
     }
 
     @Test
-    void testAdditionDouble() {
-        assertEquals(13.13, Calculator.addition(13.0, 0.13), 0.00);
+    public void testAdditionInt() {
+        assertEquals(13, calculator.addition(1, 12));
     }
 
     @Test
-    void testSubtractionInt() {
-        assertEquals(13, Calculator.subtraction(14, 1));
+    public void testAdditionDouble() {
+        assertEquals(13.13, calculator.addition(13.0, 0.13), 0.00);
     }
 
     @Test
-    void testSubtractionDouble() {
-        assertEquals(13.13, Calculator.subtraction(14.0, 0.87), 0.00);
+    public void testSubtractionInt() {
+        assertEquals(13, calculator.subtraction(14, 1));
     }
 
     @Test
-    void testMultiplicationInt() {
-        assertEquals(12, Calculator.multiplication(2, 6));
+    public void testSubtractionDouble() {
+        assertEquals(13.13, calculator.subtraction(14.0, 0.87), 0.00);
     }
 
     @Test
-    void testMultiplicationDouble() {
-        assertEquals(9.68, Calculator.multiplication(2.2, 4.4), 0.00);
+    public void testMultiplicationInt() {
+        assertEquals(12, calculator.multiplication(2, 6));
     }
 
     @Test
-    void testDivisionInt() {
-        assertEquals(2, Calculator.division(8, 4), 0);
+    public void testMultiplicationDouble() {
+        assertEquals(9.680000000000001, calculator.multiplication(2.2, 4.4), 0.00);
     }
 
     @Test
-    void testDivisionDouble() {
-        assertEquals(28.886, Calculator.division(13.13, 2.2), 0.000);
+    public void testDivisionInt() {
+        assertEquals(2, calculator.division(8, 4), 0);
     }
 
     @Test
-    void testRootInt() {
-        assertEquals(13, Calculator.root(169), 0);
+    public void testDivisionDouble() {
+        assertEquals(5.968181818181818, calculator.division(13.13, 2.2), 0.000);
     }
 
     @Test
-    void testRootDouble() {
-        assertEquals(13.13, Calculator.root(172.3969), 0.00);
+    public void testRootInt() {
+        assertEquals(13, calculator.root(169), 0);
     }
 
     @Test
-    void testPowInt() {
-        assertEquals(169, Calculator.pow(13, 2), 0);
+    public void testRootDouble() {
+        assertEquals(13.129999999999999, calculator.root(172.3969), 0.00);
     }
 
     @Test
-    void testPowDouble() {
-        assertEquals(2248.091, Calculator.pow(13.1, 3), 0.000);
+    public void testPowInt() {
+        assertEquals(169, calculator.pow(13, 2), 0);
+    }
+
+    @Test
+    public void testPowDouble() {
+        assertEquals(2248.091, calculator.pow(13.1, 3), 0.000);
     }
 }

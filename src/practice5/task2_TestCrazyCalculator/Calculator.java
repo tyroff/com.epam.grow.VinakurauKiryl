@@ -15,7 +15,7 @@ public class Calculator {
      * @param i2 number type int.
      * @return addition of two numbers of type int.
      */
-    public static int addition(int i1, int i2) {
+    public int addition(int i1, int i2) {
         return i1 + i2;
     }
 
@@ -26,7 +26,7 @@ public class Calculator {
      * @param i2 number type double.
      * @return addition of two numbers of type double.
      */
-    public static double addition(double i1, double i2) {
+    public double addition(double i1, double i2) {
         return i1 + i2;
     }
 
@@ -37,7 +37,7 @@ public class Calculator {
      * @param i2 number type double.
      * @return subtraction of two numbers of type double.
      */
-    public static int subtraction(int i1, int i2) {
+    public int subtraction(int i1, int i2) {
         return i1 - i2;
     }
 
@@ -48,7 +48,7 @@ public class Calculator {
      * @param i2 number type double.
      * @return subtraction of two numbers of type double.
      */
-    public static double subtraction(double i1, double i2) {
+    public double subtraction(double i1, double i2) {
         return i1 - i2;
     }
 
@@ -59,7 +59,7 @@ public class Calculator {
      * @param i2 number type int.
      * @return multiplication of two numbers of type int.
      */
-    public static int multiplication(int i1, int i2) {
+    public int multiplication(int i1, int i2) {
         return i1 * i2;
     }
 
@@ -70,7 +70,7 @@ public class Calculator {
      * @param i2 number type double.
      * @return multiplication of two numbers of type double.
      */
-    public static double multiplication(double i1, double i2) {
+    public double multiplication(double i1, double i2) {
         return i1 * i2;
     }
 
@@ -81,7 +81,7 @@ public class Calculator {
      * @param i2 number type int.
      * @return division of two numbers of type int.
      */
-    public static double division(int i1, int i2) {
+    public double division(int i1, int i2) {
         return i1 / i2;
     }
 
@@ -92,7 +92,7 @@ public class Calculator {
      * @param i2 number type double.
      * @return division of two numbers of type double.
      */
-    public static double division(double i1, double i2) {
+    public double division(double i1, double i2) {
         return i1 / i2;
     }
 
@@ -102,7 +102,7 @@ public class Calculator {
      * @param i1 number type int.
      * @return root number of type int.
      */
-    public static double root(int i1) {
+    public double root(int i1) {
         return Math.sqrt(i1);
     }
 
@@ -112,7 +112,7 @@ public class Calculator {
      * @param i1 number type double.
      * @return root number of type double.
      */
-    public static double root(double i1) {
+    public double root(double i1) {
         return Math.sqrt(i1);
     }
 
@@ -123,7 +123,7 @@ public class Calculator {
      * @param powValue power type int.
      * @return root number of type int.
      */
-    public static double pow(int i1, int powValue) {
+    public double pow(int i1, int powValue) {
         return Math.pow(i1, powValue);
     }
 
@@ -134,7 +134,7 @@ public class Calculator {
      * @param powValue power type int.
      * @return root number of type double.
      */
-    public static double pow(double i1, int powValue) {
+    public double pow(double i1, int powValue) {
         return Math.pow(i1, powValue);
     }
 
