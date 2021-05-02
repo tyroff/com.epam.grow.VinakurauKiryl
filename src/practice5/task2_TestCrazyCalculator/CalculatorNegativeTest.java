@@ -1,7 +1,9 @@
 package practice5.task2_TestCrazyCalculator;
 
 import org.junit.*;
-import practice5.task2_TestCrazyCalculator.Calculator;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class CalculatorNegativeTest {
 
@@ -19,28 +21,25 @@ public class CalculatorNegativeTest {
         calculator = null;
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testAdditionIntThenOverflow() {
-        if (calculator.addition(1, maxInt) > maxInt &&
-        calculator.addition(-1, minInt) < minInt) {
-            throw new IllegalArgumentException("Overflow Int value when addition.");
-        };
+        assertTrue("The addition of ints incorrectly goes beyond the limit.",
+                calculator.addition(1, maxInt) == minInt &&
+                calculator.addition(-1, minInt) == maxInt);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testSubtractionIntThenOverflow() {
-        if (calculator.subtraction(maxInt, -1) > maxInt &&
-                calculator.subtraction(minInt, 1) < minInt) {
-            throw new IllegalArgumentException("Overflow Int value when subtraction.");
-        };
+        assertTrue("The subtraction of ints incorrectly goes beyond the limit.",
+                calculator.subtraction(maxInt, -1) == minInt &&
+                calculator.subtraction(minInt, 1) == maxInt);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testMultiplicationIntThenOverflow() {
-        if (calculator.multiplication(1, maxInt) + 1 > maxInt ||
-        calculator.multiplication(1, maxInt) - 1 < minInt) {
-            throw new IllegalArgumentException("Overflow Int value when multiplication");
-        }
+        assertTrue("The multiplication of ints incorrectly goes beyond the limit.",
+                (calculator.multiplication(1, maxInt) + 1) == minInt
+                        && (calculator.multiplication(1, minInt) - 1) == maxInt);
     }
 
     @Test(expected = ArithmeticException.class)
@@ -48,18 +47,19 @@ public class CalculatorNegativeTest {
         calculator.division(13, 0);
     }
 
-    @Test(expected = ArithmeticException.class)
+    @Test
     public void testDivisionDoubleByZero() {
-        calculator.division(13.13, 0.0);
+        assertTrue("Dividing a double variable by zero is not infinite.",
+                 Double.isInfinite(calculator.division(13.13, 0.0)));
     }
 
-    @Test(expected = ArithmeticException.class)
+    @Test
     public void testRootIntMinusOne() {
-        calculator.root(-1);
+        assertTrue("Square root of -1 not NAN", Double.isNaN(calculator.root(-1)));
     }
 
-    @Test(expected = ArithmeticException.class)
+    @Test
     public void testRootDoubleMinusOne() {
-        calculator.root(-1.0);
+        assertTrue("Square root of -1.0 not NAN", Double.isNaN(calculator.root(-1.0)));
     }
 }
