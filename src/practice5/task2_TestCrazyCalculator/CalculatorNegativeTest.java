@@ -1,9 +1,13 @@
 package practice5.task2_TestCrazyCalculator;
 
-import org.junit.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 public class CalculatorNegativeTest {
 
@@ -61,5 +65,16 @@ public class CalculatorNegativeTest {
     @Test
     public void testRootDoubleMinusOne() {
         assertTrue("Square root of -1.0 not NAN", Double.isNaN(calculator.root(-1.0)));
+    }
+
+    @Test(timeout = 3_000)
+    public void testIsPrime() {
+        assertTrue("The number is not prime.", calculator.isPrime(556289));
+    }
+
+    @Test
+    public void testFibonacciSequence() {
+        long[] array = {1, 1, 2, 3, 5, 8};
+        assertThat(array, is(equalTo(calculator.FibonacciSequence(6))));
     }
 }

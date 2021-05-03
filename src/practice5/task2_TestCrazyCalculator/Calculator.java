@@ -119,7 +119,7 @@ public class Calculator {
     /**
      * Power function number of type {@code int}.
      *
-     * @param i1 number type int.
+     * @param i1       number type int.
      * @param powValue power type int.
      * @return root number of type int.
      */
@@ -130,7 +130,7 @@ public class Calculator {
     /**
      * Power function number of type {@code double}.
      *
-     * @param i1 number type double.
+     * @param i1       number type double.
      * @param powValue power type int.
      * @return root number of type double.
      */
@@ -138,4 +138,51 @@ public class Calculator {
         return Math.pow(i1, powValue);
     }
 
+    /**
+     * If the number is prime it returns True otherwise False.
+     *
+     * @param i checked number.
+     * @return if the number is prime it returns True otherwise False.
+     */
+    public boolean isPrime(int i) {
+        if (i <= 1) {
+            return false;
+        }
+        for (int j = 2; j < i; j++) {
+            if (i % j == 0) return false;
+        }
+        return true;
+    }
+
+    /**
+     * Displays the Fibonacci sequence.
+     *
+     * @param i the number of members of the Fibonacci sequence.
+     */
+    public long[] FibonacciSequence(int i) {
+        if (i < 1) {
+            throw new IllegalArgumentException();
+        }
+
+        long[] array = new long[i];
+        if (i == 1) {
+            array[0] = 1;
+        } else if (i == 2) {
+            array[0] = 1;
+            array[1] = 1;
+        } else if (i > 2) {
+            array[0] = 1;
+            array[1] = 1;
+            long i1 = 1;
+            long i2 = 1;
+            long sum;
+            for (int j = 2; j < i; j++) {
+                sum = i1 + i2;
+                array[j] = sum;
+                i1 = i2;
+                i2 = sum;
+            }
+        }
+        return array;
+    }
 }
