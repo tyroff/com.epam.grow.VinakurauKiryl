@@ -1,23 +1,26 @@
 package practice5.task1_GuessAboutFunctionality;
 
 import org.junit.*;
+import org.junit.rules.ExpectedException;
 
 import java.text.Normalizer;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class TestUtils {
 
     private Utils utils;
 
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
     @BeforeClass
     public static void beforeClass() {
-        System.out.println("Before UtilsTest start");
     }
 
     @AfterClass
     public static void afterClass() {
-        System.out.println("After UtilsTest finished");
     }
 
     @Before
@@ -33,31 +36,68 @@ public class TestUtils {
     @Test
     public void testConcatenateWords() {
         assertEquals("test1", utils.concatenateWords("test", "1"));
-        System.out.println("+ Test testConcatenateWords() is completed");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConcatenateWordsThenEmptyOrBlankTwoParameters() {
+        assertEquals("Not empty", utils.concatenateWords("", ""));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConcatenateWordsThenEmptyOrBlankFirstParameter() {
+        assertEquals("Not empty", utils.concatenateWords("", "text"));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConcatenateWordsThenEmptyOrBlankSecondParameter() {
+        assertEquals("Not empty", utils.concatenateWords("text", ""));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testConcatenateWordsThenNullTwoParameters() {
+        assertNull("Not null", utils.concatenateWords(null, null));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testConcatenateWordsThenNullFirstParameter() {
+        assertNull("Not null", utils.concatenateWords(null, "text"));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testConcatenateWordsThenNullSecondParameter() {
+        assertNull("Not null", utils.concatenateWords("text", null));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testConcatenateWordsThenNullFirstParameterAndEmpty() {
+        assertNull("Not null", utils.concatenateWords(null, ""));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConcatenateWordsThenNullSecondParameterAndEmpty() {
+        assertNull("Not null", utils.concatenateWords("", null));
     }
 
     @Test
     public void testComputeFactorial() {
         assertEquals(120, utils.computeFactorial(5));
-        System.out.println("+ Test testComputeFactorial() is completed");
     }
 
     @Test(timeout = 200)
     public void testFactorialWithTimeout() {
         assertEquals(120, utils.computeFactorial(5));
-        System.out.println("+ Test testFactorialWithTimeout() is completed");
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testExpectedException() {
         utils.computeFactorial(-5);
-        System.out.println("+ Test testExpectedException() is completed");
+        thrown.expect(IllegalArgumentException.class);
+        throw new IllegalArgumentException("What happened?");
     }
 
     @Ignore
     @Test
     public void testNormalizeWord() {
         System.out.println(Normalizer.normalize("NoRMalIZed teXt", Normalizer.Form.NFD));
-        System.out.println("+ Test testNormalizeWord() isn't completed");
     }
 }
