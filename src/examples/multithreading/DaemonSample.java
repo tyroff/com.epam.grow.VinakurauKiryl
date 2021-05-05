@@ -1,5 +1,6 @@
 package examples.multithreading;
 
+import static java.lang.Thread.currentThread;
 import static java.lang.Thread.sleep;
 
 public class DaemonSample {
@@ -55,9 +56,12 @@ public class DaemonSample {
         thread.interrupt();
 
         try {
-            while (true) {
+            int count = 0;
+            while (!currentThread().isInterrupted()) {
+                if (count == 3) currentThread().interrupt();
                 sleep(1_000);
                 System.out.println("main");
+                count++;
             }
         } catch (InterruptedException e) {
             System.out.println("Main interrupted");
