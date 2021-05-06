@@ -1,7 +1,9 @@
 package examples;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class StreamAPISample {
@@ -77,7 +79,7 @@ public class StreamAPISample {
         // findFirst - возвращает первый Optional элемент из стрима
         // skip - пропускает N первых элементов (где N параметр метода)
         // collect преобразует stream в коллекцию или другую структуру данных
-        
+
         List<String> list = Arrays.asList("a1", "a2", "a3", "a1");
 
         // Вернуть количество вхождений объекта «a1»
@@ -125,6 +127,28 @@ public class StreamAPISample {
         peopleList.stream().filter((p) -> p.getAge() >= 18).filter((p) -> (p.getSex() == Sex.WOMAN && p.getAge() < 55)
                 || (p.getSex() == Sex.MAN && p.getAge() < 60)).count();
 
+//----------------------------------------------------------------------------------------------------------------------
+        /**
+         * Сортировка
+         */
+        Collection<String> collection = Arrays.asList("a1", "a4", "a3", "a2", "a1", "a4");
+
+        // отсортировать значение по алфавиту
+        List<String> sorted = collection.stream().sorted().collect(Collectors.toList());
+
+        // отсортировать значения по алфавиту и убрать дубликаты
+        List<String> sortedDistinct = collection.stream().distinct().sorted().collect(Collectors.toList());
+
+        // отсортировать значения по олфавиту в обратном порядке и уберёт дубликаты
+        List<String> distinctReverse = collection.stream().sorted((o1, o2) -> -o1.compareTo(o2)).distinct().collect(Collectors.toList());
+
+        // отсортировать по имени в обратном алфавитном порядке
+        Collection<People> byName = peopleList.stream().sorted((o1, o2) -> -o1.getName().compareTo(o2.getName())).collect(Collectors.toList());
+
+/*        // отсортировать сначала по полу, а потом по возрасту
+        Collection<People> bySexAndName = peopleList.stream().sorted((o1, o2) -> o1.getSex() != o2.getSex()
+                ? o1.getSex().compareTo(o2.getSex()) : o1.getAge().compareTo(o2.getAge())).collect(Collectors.toList());
+*/
 
     }
 }
@@ -153,12 +177,25 @@ class People {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        People people = (People) o;
+        return age == people.age && Objects.equals(name, people.name) && sex == people.sex;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, sex);
+    }
+
+    @Override
     public String toString() {
         return "People{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", sex=" + sex +
-                '}';
+                '}' + "\n";
     }
 }
 
