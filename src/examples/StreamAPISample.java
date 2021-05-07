@@ -149,6 +149,8 @@ public class StreamAPISample {
         Collection<People> bySexAndName = peopleList.stream().sorted((o1, o2) -> o1.getSex() != o2.getSex()
                 ? o1.getSex().compareTo(o2.getSex()) : o1.getAge().compareTo(o2.getAge())).collect(Collectors.toList());
 */
+//----------------------------------------------------------------------------------------------------------------------
+
 
     }
 }
