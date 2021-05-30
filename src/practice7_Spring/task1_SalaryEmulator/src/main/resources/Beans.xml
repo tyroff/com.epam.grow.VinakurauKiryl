@@ -1,0 +1,48 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="junior" class="entities.Position">
+        <property name="name" value="junior"/>
+    </bean>
+
+    <bean id="middle" class="entities.Position">
+        <property name="name" value="middle"/>
+    </bean>
+
+    <bean id="senior" class="entities.Position">
+        <property name="name" value="senior"/>
+    </bean>
+
+    <bean id="director" class="entities.Position">
+        <property name="name" value="director"/>
+    </bean>
+
+    <bean id="employee1" class="entities.Employee">
+        <constructor-arg value="Kiryl"/>
+        <constructor-arg value="Vinakurau"/>
+        <constructor-arg value="37"/>
+        <constructor-arg ref="junior"/>
+    </bean>
+
+    <bean id="employee2" class="entities.Employee">
+        <constructor-arg value="Uladzislau"/>
+        <constructor-arg value="Shalamitski"/>
+        <constructor-arg value="29"/>
+        <constructor-arg ref="senior"/>
+    </bean>
+
+    <bean id="employee3" class="entities.Employee">
+        <constructor-arg value="Andrei"/>
+        <constructor-arg value="Khadziukou"/>
+        <constructor-arg value="33"/>
+        <constructor-arg ref="director"/>
+    </bean>
+
+    <bean id="positionServer" class="services.PositionService"/>
+    <bean id="salaryService" class="services.SalaryService"/>
+    <bean id="employeeService" class="services.EmployeeService"/>
+
+</beans>
