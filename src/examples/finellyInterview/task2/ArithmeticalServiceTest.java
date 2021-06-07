@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+
 public class ArithmeticalServiceTest {
     private ArithmeticalService arithmeticalService;
 
@@ -19,36 +21,51 @@ public class ArithmeticalServiceTest {
 
     @Test
     public void testPerformOperationSummaPositive() {
-
+        assertTrue(arithmeticalService.performOperation("summa", 1, 2) == 3);
     }
 
-/*    @Test
-    public void testPerformOperationSummaPositive() {
-        assertEquals(arithmeticalService.performOperation("summa", 1, 2), 3L);
+    @Test
+    public void testPerformOperationSummaNegative() {
+        assertFalse(arithmeticalService.performOperation("summa", 1, 2) == 4);
     }
 
     @Test
     public void testPerformOperationMultiplyPositive() {
-        Integer sum = arithmeticalService.performOperation("multiply", 1, 2);
+        assertTrue(arithmeticalService.performOperation("multiply", 1, 2) == 2);
+    }
+
+    @Test
+    public void testPerformOperationMultiplyNegative() {
+        assertFalse(arithmeticalService.performOperation("multiply", 1, 2) == 3);
     }
 
     @Test
     public void testPerformOperationDivisionsPositive() {
-        Integer sum = arithmeticalService.performOperation("divisions", 4, 2);
+        assertTrue(arithmeticalService.performOperation("divisions", 4, 2) == 2);
+    }
+
+    @Test
+    public void testPerformOperationDivisionsNegative() {
+        assertFalse(arithmeticalService.performOperation("divisions", 4, 2) == 5);
     }
 
     @Test(expected = java.lang.ArithmeticException.class)
     public void testPerformOperationDivisionsByZero() {
-        Integer sum = arithmeticalService.performOperation("divisions", 4, 0);
+        arithmeticalService.performOperation("divisions", 4, 0);
     }
 
     @Test
     public void testPerformOperationSubtractionPositive() {
-        Integer sum = arithmeticalService.performOperation("subtraction", 4, 2);
+        assertTrue(arithmeticalService.performOperation("subtraction", 4, 2) == 2);
+    }
+
+    @Test
+    public void testPerformOperationSubtractionNegative() {
+        assertFalse(arithmeticalService.performOperation("subtraction", 4, 2) == 5);
     }
 
     @Test
     public void testPerformOperationSubtractionNotOperation() {
         assertEquals(null, arithmeticalService.performOperation("null", 4, 2));
-    }*/
+    }
 }
