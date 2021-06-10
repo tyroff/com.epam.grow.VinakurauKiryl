@@ -7,7 +7,7 @@ import java.util.List;
 
 public class SortApplication {
 
-    public static User[][] users = {
+    private static User[][] users = {
             {new User("Andrii", 22)},
             {new User("Andrew", 27), new User("Andrew", 25)},
             {new User("Andrew", 24), new User("Andrew", 21), new User("Andrii", 21), new User("Andrei", 30)},
@@ -44,7 +44,7 @@ public class SortApplication {
      * @param userSecond compared object of type {@code User}
      * @return true if the first object is greater than the second, otherwise false.
      */
-    private static Boolean orderByUsers(User userFirst, User userSecond) {
+    private static Boolean isGreater(User userFirst, User userSecond) {
         String nameUserFirst = userFirst.getName();
         String nameUserSecond = userSecond.getName();
         if (nameUserFirst.compareTo(nameUserSecond) > 0) {
@@ -109,7 +109,7 @@ public class SortApplication {
                             for (int m = 0; m < lengthFirst; m++) {
                                 User user1 = sortMass[l][m];
                                 User user2 = sortMass[l + 1][m];
-                                if (orderByUsers(user1, user2)) {
+                                if (isGreater(user1, user2)) {
                                     User[] buff = sortMass[l];
                                     sortMass[l] = sortMass[l + 1];
                                     sortMass[l + 1] = buff;
@@ -119,7 +119,7 @@ public class SortApplication {
                             for (int m = 0; m < lengthSecond; m++) {
                                 User user1 = sortMass[l][m];
                                 User user2 = sortMass[l + 1][m];
-                                if (orderByUsers(user1, user2)) {
+                                if (isGreater(user1, user2)) {
                                     User[] buff = sortMass[l];
                                     sortMass[l] = sortMass[l + 1];
                                     sortMass[l + 1] = buff;

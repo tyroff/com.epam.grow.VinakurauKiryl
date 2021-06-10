@@ -15,6 +15,7 @@ public class ArithmeticalService {
                 break;
             case "subtraction":
                 result = leftOperand - rightOperand;
+                break;
         }
         return result;
     }
