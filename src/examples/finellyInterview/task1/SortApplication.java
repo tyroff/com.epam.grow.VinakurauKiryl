@@ -1,9 +1,6 @@
 package examples.finellyInterview.task1;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class SortApplication {
 
@@ -13,29 +10,6 @@ public class SortApplication {
             {new User("Andrew", 24), new User("Andrew", 21), new User("Andrii", 21), new User("Andrei", 30)},
             {new User("Andrew", 21)}
     };
-
-    /**
-     * Sorts the User List by name and age.
-     *
-     * @param userList sorted {@code List}
-     */
-    private static void order(List<User> userList) {
-        Collections.sort(userList, new Comparator() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                String nameUser1 = ((User) o1).getName();
-                String nameUser2 = ((User) o2).getName();
-                if (nameUser1.isBlank() || nameUser2.isBlank()) throw new NullPointerException();
-                int userCompare = nameUser1.compareTo(nameUser2);
-                if (userCompare != 0) {
-                    return userCompare;
-                }
-                Integer ageUser1 = ((User) o1).getAge();
-                Integer ageUser2 = ((User) o2).getAge();
-                return ageUser1.compareTo(ageUser2);
-            }
-        });
-    }
 
     /**
      * The method compares two User objects by name and age.
@@ -62,49 +36,34 @@ public class SortApplication {
 
         System.out.print("Source array:\n");
         for (int i = 0; i < users.length; i++) {
-            for (int j = 0; j < users[i].length; j++) {
-                System.out.print(users[i][j] + "\t");
-            }
-            System.out.println();
+            System.out.println(Arrays.toString(users[i]));
         }
         System.out.println();
 
         //Sorting in each line.
         User[][] sortMass = new User[users.length][];
-        List<User> buffList = new ArrayList<>();
         for (int i = 0; i < users.length; i++) {
-            for (int j = 0; j < users[i].length; j++) {
-                buffList.add(users[i][j]);
-            }
-            order(buffList);
-            User[] masUserBuff = new User[buffList.size()];
-            for (int k = 0; k < buffList.size(); k++) {
-                masUserBuff[k] = buffList.get(k);
-            }
-            sortMass[i] = masUserBuff;
-            buffList.removeAll(buffList);
+            User[] temp = users[i].clone();
+            Arrays.sort(temp);
+            sortMass[i] = temp.clone();
         }
         System.out.println("Sorting in lines:");
         for (int i = 0; i < sortMass.length; i++) {
-            for (int j = 0; j < sortMass[i].length; j++) {
-                System.out.print(sortMass[i][j] + "\t");
-            }
-            System.out.println();
+            System.out.println(Arrays.toString(sortMass[i]));
         }
+        System.out.println();
 
         //Sorting lines.
         int lengthSortLines = sortMass.length;
         for (int i = 0; i < lengthSortLines; i++) {
             if (lengthSortLines == 1) {
-                for (int j = 0; j < sortMass[0].length; j++) {
-                    System.out.print(sortMass[0][j] + "\t");
-                }
-                System.out.println();
+                Arrays.toString(sortMass);
             } else if (lengthSortLines > 1) {
-                for (int k = lengthSortLines - 1; k >0; k--) {
-                    for (int l = 0; l < k; l++) {
+                for (int j = lengthSortLines - 1; j >0; j--) {
+                    for (int l = 0; l < j; l++) {
                         int lengthFirst = sortMass[l].length;
                         int lengthSecond = sortMass[l + 1].length;
+
                         if (lengthFirst <= lengthSecond) {
                             for (int m = 0; m < lengthFirst; m++) {
                                 User user1 = sortMass[l][m];
@@ -132,10 +91,7 @@ public class SortApplication {
         }
         System.out.println("\nSorting between lines:");
         for (int i = 0; i < sortMass.length; i++) {
-            for (int j = 0; j < sortMass[i].length; j++) {
-                System.out.print(sortMass[i][j] + "\t");
-            }
-            System.out.println();
+            System.out.println(Arrays.toString(sortMass[i]));
         }
     }
 }

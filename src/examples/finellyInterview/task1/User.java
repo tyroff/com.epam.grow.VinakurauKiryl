@@ -7,7 +7,7 @@ import java.util.Objects;
  *
  * @author Kiryl_Vinakurau
  */
-public class User{
+public class User implements Comparable<User>{
     private String name;
     private int age;
 
@@ -51,5 +51,24 @@ public class User{
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public int compareTo(User user) {
+        if (user.getName().isBlank() || user.getName() == null) {
+            System.out.println("Name is blank or null");
+            throw new NullPointerException();
+        }
+        if (user.getAge() <= 0) {
+            System.out.println("User age <= 0");
+            throw new NullPointerException();
+        }
+        int userCompare = name.compareTo(user.getName());
+        if (userCompare != 0) {
+            return userCompare;
+        }
+        if (age > user.getAge()) return 1;
+        else if (age < user.getAge()) return -1;
+        else return 0;
     }
 }
