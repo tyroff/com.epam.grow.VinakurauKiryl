@@ -9,9 +9,9 @@ import java.util.Objects;
  */
 public class User implements Comparable<User>{
     private String name;
-    private int age;
+    private Integer age;
 
-    public User(String name, int age) {
+    public User(String name, Integer age) {
         this.name = name;
         this.age = age;
     }
@@ -24,11 +24,11 @@ public class User implements Comparable<User>{
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -37,7 +37,7 @@ public class User implements Comparable<User>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return age == user.age && Objects.equals(name, user.name);
+        return Objects.equals(name, user.name) && Objects.equals(age, user.age);
     }
 
     @Override
@@ -59,16 +59,18 @@ public class User implements Comparable<User>{
             System.out.println("Name is blank or null");
             throw new NullPointerException();
         }
-        if (user.getAge() <= 0) {
-            System.out.println("User age <= 0");
+        if (user.getAge() <= 0 || user.getAge() == null) {
+            System.out.println("User age <= 0 or null.");
             throw new NullPointerException();
         }
-        int userCompare = name.compareTo(user.getName());
-        if (userCompare != 0) {
-            return userCompare;
+        int userNameCompare = name.compareTo(user.getName());
+        if (userNameCompare != 0) {
+            return userNameCompare;
         }
-        if (age > user.getAge()) return 1;
-        else if (age < user.getAge()) return -1;
-        else return 0;
+        int userAgeCompare = age.compareTo(user.getAge());
+        if (userAgeCompare != 0) {
+            return userAgeCompare;
+        }
+        return 0;
     }
 }
