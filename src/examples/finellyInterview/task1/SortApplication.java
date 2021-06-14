@@ -88,12 +88,12 @@ public class SortApplication {
         System.out.print("Source array:\n");
         printArrayToConsole(users);
 
-        User[][] sortMass = sortingLinesMass(users);
+        users = sortingLinesMass(users);
         System.out.println("Sorting in lines:");
-        printArrayToConsole(sortMass);
+        printArrayToConsole(users);
 
-        User[][] sortLinesMass = sortingBetweenLinesMass(sortMass);
-        System.out.println("\nSorting between lines:");
-        printArrayToConsole(sortLinesMass);
+        users = sortingBetweenLinesMass(users);
+        System.out.println("Sorting between lines:");
+        printArrayToConsole(users);
     }
 }
