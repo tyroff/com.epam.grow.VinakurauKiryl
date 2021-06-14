@@ -37,46 +37,63 @@ public class SortApplication {
         System.out.println();
     }
 
-    public static void main(String[] args) {
-
-        System.out.print("Source array:\n");
-        printArrayToConsole(users);
-
-        //Sorting in each line.
-        User[][] sortMass = new User[users.length][];
-        for (int i = 0; i < users.length; i++) {
-            User[] temp = users[i].clone();
+    /**
+     * In a two-dimensional array, sorts each one-dimensional array of the User type.
+     *
+     * @param mass a two-dimensional array in which the one-dimensional array must be sorted.
+     * @return two-dimensional array with sorted one-dimensional arrays of the User type.
+     */
+    private static User[][] sortingLinesMass(User[][] mass) {
+        for (int i = 0; i < mass.length; i++) {
+            User[] temp = mass[i].clone();
             Arrays.sort(temp);
-            sortMass[i] = temp.clone();
+            mass[i] = temp.clone();
         }
-        System.out.println("Sorting in lines:");
-        printArrayToConsole(sortMass);
+        return mass;
+    }
 
-        //Sorting lines.
-        int lengthSortLines = sortMass.length;
-        for (int i = 0; i < lengthSortLines; i++) {
-            if (lengthSortLines == 1) {
-                Arrays.toString(sortMass);
-            } else if (lengthSortLines > 1) {
-                for (int j = lengthSortLines - 1; j > 0; j--) {
+    /**
+     * Sorts a two-dimensional array User between lines.
+     *
+     * @param mass a two-dimensional array in which the one-dimensional array must be sorted.
+     * @return a sorted two-dimensional array of User between the lines.
+     */
+    private static User[][] sortingBetweenLinesMass(User[][] mass) {
+        int lengthMass = mass.length;
+        if (lengthMass > 1) {
+            for (int i = 0; i < lengthMass; i++) {
+                for (int j = lengthMass - 1; j > 0; j--) {
                     for (int l = 0; l < j; l++) {
-                        int lengthFirst = sortMass[l].length;
-                        int lengthSecond = sortMass[l + 1].length;
-                        int minLengthMass = lengthFirst <= lengthSecond ? lengthFirst : lengthSecond;
+                        int lengthFirst = mass[l].length;
+                        int lengthSecond = mass[l + 1].length;
+                        int minLengthMass = Math.min(lengthFirst, lengthSecond);
                         for (int m = 0; m < minLengthMass; m++) {
-                            User user1 = sortMass[l][m];
-                            User user2 = sortMass[l + 1][m];
+                            User user1 = mass[l][m];
+                            User user2 = mass[l + 1][m];
                             if (isGreater(user1, user2)) {
-                                User[] buff = sortMass[l];
-                                sortMass[l] = sortMass[l + 1];
-                                sortMass[l + 1] = buff;
+                                User[] buff = mass[l];
+                                mass[l] = mass[l + 1];
+                                mass[l + 1] = buff;
                             }
                         }
                     }
                 }
             }
         }
-        System.out.println("\nSorting between lines:");
+        return mass;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.print("Source array:\n");
+        printArrayToConsole(users);
+
+        User[][] sortMass = sortingLinesMass(users);
+        System.out.println("Sorting in lines:");
         printArrayToConsole(sortMass);
+
+        User[][] sortLinesMass = sortingBetweenLinesMass(sortMass);
+        System.out.println("\nSorting between lines:");
+        printArrayToConsole(sortLinesMass);
     }
 }
