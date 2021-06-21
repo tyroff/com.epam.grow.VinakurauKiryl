@@ -33,10 +33,10 @@ public class User implements Comparable<User>{
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
+    public boolean equals(Object comparedUser) {
+        if (this == comparedUser) return true;
+        if (comparedUser == null || getClass() != comparedUser.getClass()) return false;
+        User user = (User) comparedUser;
         return Objects.equals(name, user.name) && Objects.equals(age, user.age);
     }
 

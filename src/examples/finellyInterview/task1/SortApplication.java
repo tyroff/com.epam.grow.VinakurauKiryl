@@ -19,10 +19,7 @@ public class SortApplication {
      * @return true if the first object is greater than the second, otherwise false.
      */
     private static Boolean isGreater(User userFirst, User userSecond) {
-        if (userFirst.compareTo(userSecond) > 0) {
-            return true;
-        }
-        return false;
+        return userFirst.compareTo(userSecond) > 0;
     }
 
     /**
